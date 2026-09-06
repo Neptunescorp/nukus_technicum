@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-i(j5i(o6!lfc*m6_)^k%ln2e&cqo!yj&=&j(8*pkk)08y#%(26
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =[]
+ALLOWED_HOSTS = [
+    "nukustechnicum-production.up.railway.app",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -135,3 +139,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://nukustechnicum-production.up.railway.app",
+]
