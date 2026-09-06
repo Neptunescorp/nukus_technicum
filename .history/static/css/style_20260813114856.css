@@ -1,0 +1,279 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.navbar .nav-link:hover {
+    opacity: 0.8;
+}
+
+footer {
+    margin-top: 80px;
+}
+
+footer h5 {
+    margin-bottom: 20px;
+}
+
+footer a:hover {
+    color: white !important;
+}
+
+.teacher-card {
+    overflow: hidden;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.teacher-card:hover {
+    transform: translateY(-6px);
+}
+
+.teacher-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.teacher-placeholder {
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf2ff;
+
+    color: #0d6efd;
+
+    font-size: 100px;
+}
+
+.teacher-detail-photo {
+    width: 100%;
+    max-width: 350px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.teacher-detail-placeholder {
+    width: 350px;
+    max-width: 100%;
+    height: 400px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf2ff;
+
+    color: #0d6efd;
+
+    font-size: 130px;
+
+    border-radius: 15px;
+}
+
+.news-card {
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+}
+
+.news-image {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.news-placeholder {
+    height: 230px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf2ff;
+
+    color: #0d6efd;
+
+    font-size: 80px;
+}
+
+.news-detail-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.news-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.gallery-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: white;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-image {
+    display: block;
+
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    padding: 15px;
+
+    background: white;
+}
+
+.gallery-caption small {
+    color: #6c757d;
+}
+
+.admission-hero {
+    background: linear-gradient(
+        135deg,
+        #f8f9fa 0%,
+        #eaf2ff 100%
+    );
+}
+
+.admission-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+.admission-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf2ff;
+
+    color: #0d6efd;
+
+    border-radius: 12px;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.admission-contact {
+    background: #f8f9fa;
+
+    border-radius: 15px;
+
+    padding: 50px 30px;
+}
+
+.about-hero {
+    background: linear-gradient(
+        135deg,
+        #f8f9fa 0%,
+        #eaf2ff 100%
+    );
+}
+
+.about-logo {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+.about-logo-placeholder {
+    width: 250px;
+    height: 250px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    color: #0d6efd;
+
+    border-radius: 20px;
+
+    font-size: 100px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.about-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.feature-card {
+    background: white;
+
+    padding: 35px 25px;
+
+    height: 100%;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+.feature-card > i {
+    font-size: 50px;
+    color: #0d6efd;
+}

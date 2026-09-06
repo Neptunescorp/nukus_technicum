@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}
+Biz haqqimizda | NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="about-hero py-5 position-relative overflow-hidden fade-in-up">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <span class="hero-badge mb-3 d-inline-block">
+                    <i class="bi bi-info-circle me-1"></i> Biz haqqimizda
+                </span>
+
+                <h1 class="display-4 fw-bold mt-2 text-dark" style="letter-spacing: -0.5px;">
+                    Nókis qalasi 3 sanli Texnikum
+                </h1>
+
+                {% if information and information.short_description %}
+                <p class="lead text-muted mt-3" style="line-height: 1.7;">
+                    {{ information.short_description }}
+                </p>
+                {% else %}
+                <p class="lead text-muted mt-3" style="line-height: 1.7;">
+                    Zamanagoy texnologiyalar, tajribeli ustazlar, Prafessiyanal talim.
+                </p>
+                {% endif %}
+            </div>
+
+            <div class="col-lg-5 text-center">
+                {% if information and information.logo %}
+                <div class="p-3 bg-white rounded-4 shadow-sm d-inline-block border">
+                    <img
+                        src="{{ information.logo.url }}"
+                        alt="{{ information.name }}"
+                        class="about-logo img-fluid rounded-3"
+                    >
+                </div>
+                {% else %}
+                <div class="about-logo-placeholder mx-auto shadow-sm">
+                    <i class="bi bi-building"></i>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN CONTENT SECTION -->
+<section class="py-5 bg-white">
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="p-4 p-md-5 rounded-4 border bg-light shadow-sm">
+                    <h2 class="fw-bold mb-4 text-dark border-bottom pb-3">
+                        Texnikum haqqinda tolıq maglıwmat
+                    </h2>
+
+                    {% if information and information.about %}
+                    <div class="about-content text-secondary" style="font-size: 1.1rem; line-height: 1.9;">
+                        {{ information.about|linebreaks }}
+                    </div>
+                    {% else %}
+                    <p class="text-muted fs-5">
+                        Information about Nukus Shahar 3-sonli Texnikum will be published here.
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="py-5 bg-light border-top">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <span class="hero-badge mb-2 d-inline-block">
+                Arzuvıńızǵa qádem qoyıń
+            </span>
+            <h2 class="fw-bold display-6 text-dark mt-2">
+                Ne ushn bizdi tanlaw kerek?
+            </h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 h-100 border rounded-4 bg-white shadow-sm">
+                    <div class="admission-icon mx-auto mb-3">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+                    <h4 class="fw-bold mt-3 text-dark fs-5">
+                        Prafessiyanal qabiliyetler  
+                    </h4>
+                    <p class="text-muted mb-0">
+                        Keleshek kasbi ushn nazeriy ham ameliy bilimler 
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 h-100 border rounded-4 bg-white shadow-sm">
+                    <div class="admission-icon mx-auto mb-3">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h4 class="fw-bold mt-3 text-dark fs-5">
+                        Tajribeli Ustazlar
+                    </h4>
+                    <p class="text-muted mb-0">
+                        Joqari Maglumatli Oqiwshilardan talim aliń
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 h-100 border rounded-4 bg-white shadow-sm">
+                    <div class="admission-icon mx-auto mb-3">
+                        <i class="bi bi-briefcase"></i>
+                    </div>
+                    <h4 class="fw-bold mt-3 text-dark fs-5">
+                        Jumis Imkaniyatlari
+                    </h4>
+                    <p class="text-muted mb-0">
+                        Ozinizdi keleshek hamde jumis imkaniyatlari ushn tayarlan
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

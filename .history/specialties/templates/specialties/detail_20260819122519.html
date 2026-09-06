@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ specialty.name }} | NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-white">
+
+    <div class="container py-3">
+
+        <!-- BACK BUTTON -->
+        <div class="mb-4">
+            <a
+                href="{% url 'specialty_list' %}"
+                class="btn btn-outline-primary btn-sm rounded-pill px-3 shadow-sm d-inline-flex align-items-center gap-2 text-decoration-none"
+            >
+                <i class="bi bi-arrow-left"></i>
+                <span>Qánigeliklerge qaytıw</span>
+            </a>
+        </div>
+
+
+        <!-- MAIN GRID -->
+        <div class="row g-5 align-items-center">
+
+            <!-- IMAGE / PLACEHOLDER -->
+            <div class="col-lg-6">
+                {% if specialty.image %}
+                <div class="overflow-hidden rounded-4 shadow-sm border">
+                    <img
+                        src="{{ specialty.image.url }}"
+                        class="img-fluid w-100"
+                        alt="{{ specialty.name }}"
+                        style="max-height: 420px; object-fit: cover;"
+                    >
+                </div>
+                {% else %}
+                <div
+                    class="bg-light rounded-4 border d-flex align-items-center justify-content-center shadow-sm"
+                    style="height: 380px;"
+                >
+                    <i
+                        class="bi bi-mortarboard text-primary"
+                        style="font-size: 100px;"
+                    ></i>
+                </div>
+                {% endif %}
+            </div>
+
+
+            <!-- INFO & DETAILS -->
+            <div class="col-lg-6">
+
+                <span class="hero-badge mb-2 d-inline-block">
+                    QÁNIGELIK
+                </span>
+
+                <h1 class="fw-bold display-6 text-dark mt-2 mb-3">
+                    {{ specialty.name }}
+                </h1>
+
+                {% if specialty.duration %}
+                <div class="d-inline-flex align-items-center bg-light border px-3 py-2 rounded-pill text-dark fw-semibold mb-4 shadow-sm">
+                    <i class="bi bi-clock text-primary me-2 fs-5"></i>
+                    <span>Oqıw dawam etiw waqti: <span class="text-primary">{{ specialty.duration }}</span></span>
+                </div>
+                {% endif %}
+
+                {% if specialty.description %}
+                <div class="specialty-description text-muted" style="line-height: 1.8;">
+                    <h5 class="fw-bold text-dark mb-2">Qánigelik haqqında</h5>
+                    {{ specialty.description|linebreaks }}
+                </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- REQUIREMENTS & CAREER SECTIONS -->
+        <div class="row g-4 mt-5">
+
+            {% if specialty.admission_requirements %}
+            <div class="col-lg-6">
+                <div class="p-4 bg-light border rounded-4 shadow-sm h-100">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-check2-circle text-primary fs-4"></i>
+                        <h3 class="fw-bold fs-5 text-dark mb-0">Qabıl talapları</h3>
+                    </div>
+                    <div class="text-muted" style="line-height: 1.7;">
+                        {{ specialty.admission_requirements|linebreaks }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+
+            {% if specialty.career_opportunities %}
+            <div class="col-lg-6">
+                <div class="p-4 bg-light border rounded-4 shadow-sm h-100">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-briefcase text-primary fs-4"></i>
+                        <h3 class="fw-bold fs-5 text-dark mb-0">Karyera múmkinshilikleri</h3>
+                    </div>
+                    <div class="text-muted" style="line-height: 1.7;">
+                        {{ specialty.career_opportunities|linebreaks }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

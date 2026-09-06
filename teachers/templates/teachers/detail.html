@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ teacher.full_name }} | Nókis qalasí 3-sanlí texnikum
+{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5 bg-white">
+
+    <div class="container py-3">
+
+        <!-- BACK BUTTON -->
+        <div class="mb-4">
+            <a
+                href="{% url 'teacher_list' %}"
+                class="btn btn-outline-primary btn-sm rounded-pill px-3 shadow-sm d-inline-flex align-items-center gap-2 text-decoration-none"
+            >
+                <i class="bi bi-arrow-left"></i>
+                <span>Oqıtıwshılarǵa qaytıw</span>
+            </a>
+        </div>
+
+
+        <!-- MAIN PROFILE GRID -->
+        <div class="row mt-4 align-items-start g-5">
+
+            <!-- TEACHER PHOTO -->
+            <div class="col-lg-4 text-center">
+                {% if teacher.photo %}
+                <div class="overflow-hidden rounded-4 shadow-sm border bg-white">
+                    <img
+                        src="{{ teacher.photo.url }}"
+                        class="img-fluid w-100 teacher-detail-photo"
+                        alt="{{ teacher.full_name }}"
+                        style="max-height: 400px; object-fit: cover;"
+                    >
+                </div>
+                {% else %}
+                <div class="teacher-detail-placeholder border rounded-4 bg-light d-flex align-items-center justify-content-center shadow-sm" style="height: 350px;">
+                    <i class="bi bi-person text-primary display-1"></i>
+                </div>
+                {% endif %}
+            </div>
+
+
+            <!-- TEACHER DETAILS -->
+            <div class="col-lg-8">
+
+                <span class="hero-badge mb-2 d-inline-block">
+                    MUǵALLIM
+                </span>
+
+                <h1 class="fw-bold display-6 text-dark mt-2 mb-2">
+                    {{ teacher.full_name }}
+                </h1>
+
+                {% if teacher.position %}
+                <h5 class="text-primary fw-semibold fs-5 mb-2">
+                    {{ teacher.position }}
+                </h5>
+                {% endif %}
+
+                {% if teacher.department %}
+                <p class="text-muted d-flex align-items-center gap-2 mb-4">
+                    <i class="bi bi-building text-primary"></i>
+                    <span>{{ teacher.department }}</span>
+                </p>
+                {% endif %}
+
+                {% if teacher.biography %}
+                <div class="mt-4 p-4 bg-light border rounded-4 shadow-sm">
+                    <h4 class="fw-bold fs-5 text-dark mb-3">
+                        Biografiya
+                    </h4>
+                    <div class="text-muted" style="line-height: 1.8;">
+                        {{ teacher.biography|linebreaks }}
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

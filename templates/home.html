@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block title %}
+NÓKIS QALASÍ 3-SANLÍ TEXNIKUM | Bas bet
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="bg-primary text-white py-5 position-relative overflow-hidden">
+    <div class="container py-5">
+        <div class="row align-items-center py-4 g-5">
+
+            <div class="col-lg-7 text-center text-lg-start">
+                <span class="hero-badge mb-3 d-inline-block bg-white text-primary px-3 py-1 rounded-pill fw-bold small">
+                    Rásmiy veb-sayt
+                </span>
+                
+                <h1 class="display-4 fw-bold mb-3" style="line-height: 1.2;">
+                    NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+                </h1>
+
+                <p class="lead text-white-50 mb-4" style="line-height: 1.7;">
+                    Jarıq keleshek, zamanagóy texnologiyalar, tájiriybeli ustazlar hám kásipiy tálim.
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                    <a href="{% url 'admissions' %}" class="btn btn-light btn-lg rounded-pill px-4 fw-semibold shadow-sm">
+                        Qabıllaw
+                    </a>
+
+                    <a href="{% url 'specialty_list' %}" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
+                        Barlıq qánigelikler
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5 text-center">
+                <div class="p-4 bg-white bg-opacity-10 rounded-4 border border-light border-opacity-25 shadow-lg d-inline-block">
+                    <i class="bi bi-mortarboard-fill text-white" style="font-size: 130px;"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= STATISTICS ================= -->
+
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+        <div class="row text-center g-4">
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="p-4 border rounded-4 shadow-sm bg-light h-100">
+                    <h2 class="fw-bold text-primary display-5 mb-1">300+</h2>
+                    <p class="text-muted fw-medium mb-0">Oqıwshılar</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="p-4 border rounded-4 shadow-sm bg-light h-100">
+                    <h2 class="fw-bold text-primary display-5 mb-1">50+</h2>
+                    <p class="text-muted fw-medium mb-0">Ustazlar</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="p-4 border rounded-4 shadow-sm bg-light h-100">
+                    <h2 class="fw-bold text-primary display-5 mb-1">15+</h2>
+                    <p class="text-muted fw-medium mb-0">Qánigelikler</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="p-4 border rounded-4 shadow-sm bg-light h-100">
+                    <h2 class="fw-bold text-primary display-5 mb-1">10+</h2>
+                    <p class="text-muted fw-medium mb-0">Jıllıq tájiriybe</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+                <span class="hero-badge mb-2 d-inline-block">BIZ HÁQQÍMDA</span>
+                
+                <h2 class="fw-bold display-6 mb-3 text-dark">
+                    Zamanagóy tálim hám keleshek kásipleri
+                </h2>
+
+                <p class="text-muted" style="line-height: 1.8;">
+                    Nókis қаlası 3-sanlı texnikumı oqıwshılarǵa názeriy hám ámeliy bilimler, 
+                    hám de zamanagóy tálim arqalı oqıwshılardıń jeke hám kásipiy 
+                    rawajlanıwına tiykar boladı.
+                </p>
+
+                <p class="text-muted mb-4" style="line-height: 1.8;">
+                    Bizdiń maqsetimiz Ózbekstan hám Qaraqalpaqstan nıń jumıs bazarında 
+                    kásipiy kónlikpelerge iye qánigelerdi jetistiriw.
+                </p>
+
+                <a href="{% url 'about' %}" class="btn btn-outline-primary rounded-pill px-4">
+                    Kóbirek oqıw
+                </a>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <div class="p-5 bg-light border rounded-4 shadow-sm d-inline-block w-100">
+                    <i class="bi bi-building text-primary" style="font-size: 120px;"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= SPECIALTIES ================= -->
+
+<section class="py-5 bg-light">
+    <div class="container py-4">
+
+        <div class="text-center mb-5">
+            <span class="hero-badge mb-2 d-inline-block">QÁNIGELIKLER</span>
+            <h2 class="fw-bold display-6 text-dark">Mashqur kásip jónelisleri</h2>
+            <p class="text-muted mx-auto" style="max-width: 500px; line-height: 1.7;">
+                Keleshegińiz ushın bizdiń kásip jónelislerimizden birin tańlań.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-4 shadow-sm bg-white p-2">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <i class="bi bi-laptop text-primary display-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Information Technology</h5>
+                        <p class="text-muted flex-grow-1" style="line-height: 1.6;">
+                            Zamanagóy texnologiyalar, programma dúziw hám cifrlıq kónlikpelerdi úyreniń.
+                        </p>
+                        <div class="mt-3">
+                            <a href="{% url 'specialty_list' %}" class="btn btn-outline-primary rounded-pill px-4">
+                                Úyreniń
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-4 shadow-sm bg-white p-2">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <i class="bi bi-cpu text-primary display-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Engineering</h5>
+                        <p class="text-muted flex-grow-1" style="line-height: 1.6;">
+                            Ámeliy injenerlik bilimler hám texnikalıq kónlikpelerdi rawajlandırıń.
+                        </p>
+                        <div class="mt-3">
+                            <a href="{% url 'specialty_list' %}" class="btn btn-outline-primary rounded-pill px-4">
+                                Úyreniń
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-4 shadow-sm bg-white p-2">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <i class="bi bi-briefcase text-primary display-4"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Business</h5>
+                        <p class="text-muted flex-grow-1" style="line-height: 1.6;">
+                            Basqarıw, isbilermenlik hám biznes boyınsha kónlikpelerdi iyeleń.
+                        </p>
+                        <div class="mt-3">
+                            <a href="{% url 'specialty_list' %}" class="btn btn-outline-primary rounded-pill px-4">
+                                Úyreniń
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= ADMISSION CTA ================= -->
+
+<section class="bg-primary text-white py-5">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold display-6 mb-3">
+            Keleshegińizdi biz benen baslań
+        </h2>
+        <p class="lead text-white-50 mx-auto mb-4" style="max-width: 600px; line-height: 1.7;">
+            Óz kásipiy jónelisińizdi tańlań hám bizdiń texnikum oqıwshıları qatarına qosılıń.
+        </p>
+        <a href="{% url 'admissions' %}" class="btn btn-light btn-lg rounded-pill px-5 fw-semibold shadow-sm">
+            Qabıllaw maǵlıwmatları
+        </a>
+    </div>
+</section>
+
+{% endblock %}

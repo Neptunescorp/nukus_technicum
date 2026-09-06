@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ specialty.name }} | NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <a
+            href="{% url 'specialty_list' %}"
+            class="text-decoration-none"
+        >
+            <i class="bi bi-arrow-left"></i>
+            Qánigeliklerge qaytıw
+        </a>
+
+
+        <div class="row mt-4">
+
+            <div class="col-lg-6">
+
+                {% if specialty.image %}
+
+                <img
+                    src="{{ specialty.image.url }}"
+                    class="img-fluid rounded shadow-sm"
+                    alt="{{ specialty.name }}"
+                >
+
+                {% else %}
+
+                <div
+                    class="bg-light rounded d-flex align-items-center justify-content-center"
+                    style="height:400px;"
+                >
+                    <i
+                        class="bi bi-mortarboard text-primary"
+                        style="font-size:120px;"
+                    ></i>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="col-lg-6 mt-4 mt-lg-0">
+
+                <span class="text-primary fw-semibold">
+                    Qánigelikler
+                </span>
+
+                <h1 class="fw-bold mt-2">
+                    {{ specialty.name }}
+                </h1>
+
+
+                {% if specialty.duration %}
+
+                <p class="mt-3">
+
+                    <i class="bi bi-clock text-primary"></i>
+
+                    <strong>
+                        Oqıw dawam etiw waqti:
+                    </strong>
+
+                    {{ specialty.duration }}
+
+                </p>
+
+                {% endif %}
+
+
+                {% if specialty.description %}
+
+                <div class="mt-4">
+
+                    <h4 class="fw-bold">
+                        Qánigelik haqqında
+                    </h4>
+
+                    <p class="text-secondary">
+                        {{ specialty.description|linebreaks }}
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        {% if specialty.admission_requirements %}
+
+        <div class="mt-5">
+
+            <h3 class="fw-bold">
+                Qabıl talapları
+            </h3>
+
+            <div class="text-secondary">
+                {{ specialty.admission_requirements|linebreaks }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        {% if specialty.career_opportunities %}
+
+        <div class="mt-5">
+
+            <h3 class="fw-bold">
+                Karyera múmkinshilikleri
+            </h3>
+
+            <div class="text-secondary">
+                {{ specialty.career_opportunities|linebreaks }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

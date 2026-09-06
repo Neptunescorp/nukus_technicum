@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admissions | Nukus Shahar 3-sonli Texnikum
+{% endblock %}
+
+
+{% block content %}
+
+<section class="admission-hero py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center py-5">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-primary-subtle text-primary mb-3">
+                    ADMISSIONS
+                </span>
+
+                <h1 class="display-4 fw-bold">
+                    Start Your Journey With Us
+                </h1>
+
+                <p class="lead text-secondary mt-3">
+                    Learn about admission requirements,
+                    required documents and the application process.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <i
+                    class="bi bi-file-earmark-text text-primary"
+                    style="font-size: 150px;"
+                ></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% if information %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        {% if information.description %}
+
+        <div class="mb-5">
+
+            <h2 class="fw-bold">
+                Admission Information
+            </h2>
+
+            <div class="text-secondary mt-3">
+                {{ information.description|linebreaks }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="row g-4">
+
+            {% if information.requirements %}
+
+            <div class="col-lg-6">
+
+                <div class="admission-card h-100">
+
+                    <div class="admission-icon">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Admission Requirements
+                    </h3>
+
+                    <div class="text-secondary">
+                        {{ information.requirements|linebreaks }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            {% if information.required_documents %}
+
+            <div class="col-lg-6">
+
+                <div class="admission-card h-100">
+
+                    <div class="admission-icon">
+                        <i class="bi bi-folder2-open"></i>
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Required Documents
+                    </h3>
+
+                    <div class="text-secondary">
+                        {{ information.required_documents|linebreaks }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            {% if information.important_dates %}
+
+            <div class="col-lg-6">
+
+                <div class="admission-card h-100">
+
+                    <div class="admission-icon">
+                        <i class="bi bi-calendar-event"></i>
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Important Dates
+                    </h3>
+
+                    <div class="text-secondary">
+                        {{ information.important_dates|linebreaks }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            {% if information.application_process %}
+
+            <div class="col-lg-6">
+
+                <div class="admission-card h-100">
+
+                    <div class="admission-icon">
+                        <i class="bi bi-list-check"></i>
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Application Process
+                    </h3>
+
+                    <div class="text-secondary">
+                        {{ information.application_process|linebreaks }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        {% if information.contact_information %}
+
+        <div class="admission-contact mt-5">
+
+            <div class="text-center">
+
+                <i
+                    class="bi bi-headset text-primary"
+                    style="font-size:50px;"
+                ></i>
+
+                <h3 class="fw-bold mt-3">
+                    Need More Information?
+                </h3>
+
+                <div class="text-secondary">
+                    {{ information.contact_information|linebreaks }}
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% else %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center py-5">
+
+            <i
+                class="bi bi-info-circle text-primary"
+                style="font-size:60px;"
+            ></i>
+
+            <h3 class="fw-bold mt-3">
+                Admission information will be available soon
+            </h3>
+
+            <p class="text-secondary">
+                Please check back later for official admission
+                requirements and application information.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<section class="py-5 bg-primary text-white">
+
+    <div class="container text-center">
+
+        <h2 class="fw-bold">
+            Your Future Starts Here
+        </h2>
+
+        <p class="lead">
+            Choose your specialty and begin your professional journey.
+        </p>
+
+        <a
+            href="/specialties/"
+            class="btn btn-light btn-lg"
+        >
+            Explore Specialties
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

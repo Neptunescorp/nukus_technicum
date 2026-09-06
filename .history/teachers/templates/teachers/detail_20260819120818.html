@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ teacher.full_name }} | Nókis qalasí 3-sanlí texnikum
+{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <a
+            href="{% url 'teacher_list' %}"
+            class="text-decoration-none"
+        >
+            <i class="bi bi-arrow-left"></i>
+            Oqıtıwshılarǵa qaytıw
+        </a>
+
+
+        <div class="row mt-4 align-items-center">
+
+            <div class="col-lg-4 text-center">
+
+                {% if teacher.photo %}
+
+                <img
+                    src="{{ teacher.photo.url }}"
+                    class="img-fluid rounded shadow-sm teacher-detail-photo"
+                    alt="{{ teacher.full_name }}"
+                >
+
+                {% else %}
+
+                <div class="teacher-detail-placeholder">
+
+                    <i class="bi bi-person"></i>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="col-lg-8 mt-4 mt-lg-0">
+
+                <span class="text-primary fw-semibold">
+                    Muǵallim
+                </span>
+
+                <h1 class="fw-bold mt-2">
+                    {{ teacher.full_name }}
+                </h1>
+
+
+                {% if teacher.position %}
+
+                <h5 class="text-primary">
+                    {{ teacher.position }}
+                </h5>
+
+                {% endif %}
+
+
+                {% if teacher.department %}
+
+                <p class="text-secondary">
+                    <i class="bi bi-building"></i>
+                    {{ teacher.department }}
+                </p>
+
+                {% endif %}
+
+
+                {% if teacher.biography %}
+
+                <div class="mt-4">
+
+                    <h4 class="fw-bold">
+                        Biografiya
+                    </h4>
+
+                    <div class="text-secondary">
+                        {{ teacher.biography|linebreaks }}
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

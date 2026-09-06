@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Nukus Shahar 3-sonli Texnikum
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container text-center py-5">
+
+        <h1 class="display-4 fw-bold">
+            Nukus Shahar 3-sonli Texnikum
+        </h1>
+
+        <p class="lead text-secondary mt-3">
+            Professional education and opportunities
+            for the next generation.
+        </p>
+
+        <div class="mt-4">
+
+            <a
+                href="{% url 'specialty_list' %}"
+                class="btn btn-primary btn-lg me-2"
+            >
+                Explore Specialties
+            </a>
+
+            <a
+                href="{% url 'admissions' %}"
+                class="btn btn-outline-primary btn-lg"
+            >
+                Admissions
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

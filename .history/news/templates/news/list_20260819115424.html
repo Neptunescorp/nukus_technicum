@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}
+News | Nukus Shahar 3-sonli Texnikum
+{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-primary fw-semibold">
+                Jańalıqlar hám ilajlar
+            </span>
+
+            <h1 class="fw-bold mt-2">
+                Sońǵı jańalıqlar
+            </h1>
+
+            <p class="text-secondary">
+                Nukus Shahar 3-sonli Texnikum dagi
+                so‘nggi yangiliklar, e’lonlar va tadbirlar.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for news in news_items %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="card news-card h-100 border-0 shadow-sm">
+
+                    {% if news.image %}
+
+                    <img
+                        src="{{ news.image.url }}"
+                        class="card-img-top news-image"
+                        alt="{{ news.title }}"
+                    >
+
+                    {% else %}
+
+                    <div class="news-placeholder">
+
+                        <i class="bi bi-newspaper"></i>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="card-body p-4">
+
+                        <div class="small text-primary mb-2">
+
+                            <i class="bi bi-calendar3"></i>
+
+                            {{ news.published_at|date:"d M Y" }}
+
+                        </div>
+
+
+                        <h4 class="fw-bold">
+                            {{ news.title }}
+                        </h4>
+
+
+                        {% if news.short_description %}
+
+                        <p class="text-secondary">
+                            {{ news.short_description|truncatewords:25 }}
+                        </p>
+
+                        {% else %}
+
+                        <p class="text-secondary">
+                            {{ news.content|truncatewords:25 }}
+                        </p>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'news_detail' news.pk %}"
+                            class="btn btn-outline-primary"
+                        >
+                            Kóbirek oqıw
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="text-center py-5">
+
+                    <i
+                        class="bi bi-newspaper text-primary"
+                        style="font-size:60px;"
+                    ></i>
+
+                    <h4 class="mt-3">
+                        No news published yet
+                    </h4>
+
+                    <p class="text-secondary">
+                        News and announcements will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

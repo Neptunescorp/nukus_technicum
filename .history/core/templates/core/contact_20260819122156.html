@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}
+Baylansu | NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+{% block content %}
+
+<!-- CONTACT HERO SECTION -->
+<section class="contact-hero py-5 position-relative overflow-hidden fade-in-up">
+    <div class="container text-center py-4">
+        <span class="hero-badge mb-3 d-inline-block">
+            <i class="bi bi-headset me-1"></i> Nomerlerimiz
+        </span>
+
+        <h1 class="display-5 fw-bold mt-2 text-dark" style="letter-spacing: -0.5px;">
+            Biz menen baylansu
+        </h1>
+
+        <p class="lead text-muted mx-auto" style="max-width: 600px; line-height: 1.7;">
+            Sawallariniz barma? NÓKIS QALASÍ 3-SANLÍ TEXNIKUM ga baylansiń
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT CARDS SECTION -->
+<section class="py-5 bg-white">
+    <div class="container py-3">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- ADDRESS CARD -->
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-card border rounded-4 p-4 h-100 shadow-sm text-center">
+                    <div class="admission-icon mx-auto mb-3">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+
+                    <h4 class="fw-bold fs-5 text-dark mb-3">
+                        Manzil
+                    </h4>
+
+                    {% if information and information.address %}
+                    <p class="text-muted mb-0" style="line-height: 1.6;">
+                        {{ information.address }}
+                    </p>
+                    {% else %}
+                    <p class="text-muted mb-0">
+                        Rásmiy mánzil tez arada daǵaza etiledi
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- PHONE CARD -->
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-card border rounded-4 p-4 h-100 shadow-sm text-center">
+                    <div class="admission-icon mx-auto mb-3">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+
+                    <h4 class="fw-bold fs-5 text-dark mb-3">
+                        Telefon
+                    </h4>
+
+                    {% if information and information.phone %}
+                    <p class="mb-0">
+                        <a
+                            href="tel:{{ information.phone }}"
+                            class="text-decoration-none fw-semibold fs-6 text-primary"
+                        >
+                            {{ information.phone }}
+                        </a>
+                    </p>
+                    {% else %}
+                    <p class="text-muted mb-0">
+                        Telefon nomer tez arada daǵaza etiledi
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- EMAIL CARD -->
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-card border rounded-4 p-4 h-100 shadow-sm text-center">
+                    <div class="admission-icon mx-auto mb-3">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+
+                    <h4 class="fw-bold fs-5 text-dark mb-3">
+                        Email
+                    </h4>
+
+                    {% if information and information.email %}
+                    <p class="mb-0">
+                        <a
+                            href="mailto:{{ information.email }}"
+                            class="text-decoration-none fw-semibold text-primary"
+                        >
+                            {{ information.email }}
+                        </a>
+                    </p>
+                    {% else %}
+                    <p class="text-muted mb-0">
+                        Email mánzil tez arada daǵaza etiledi
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SOCIAL MEDIA SECTION -->
+        <div class="row mt-5 pt-3">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-social text-center bg-light border rounded-4 p-4 p-md-5 shadow-sm">
+                    <span class="hero-badge mb-2 d-inline-block">
+                        IJTIMOIY TARMAQLAR
+                    </span>
+
+                    <h3 class="fw-bold text-dark mt-2">
+                        Bizge qosiliń
+                    </h3>
+
+                    <p class="text-muted">
+                        Bizlerdi ijtimaiy tarmaklarda kuzetib bariń
+                    </p>
+
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        {% if information and information.telegram %}
+                        <a
+                            href="{{ information.telegram }}"
+                            target="_blank"
+                            class="social-button shadow-sm"
+                            title="Telegram"
+                        >
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if information and information.instagram %}
+                        <a
+                            href="{{ information.instagram }}"
+                            target="_blank"
+                            class="social-button shadow-sm"
+                            title="Instagram"
+                        >
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if information and information.facebook %}
+                        <a
+                            href="{{ information.facebook }}"
+                            target="_blank"
+                            class="social-button shadow-sm"
+                            title="Facebook"
+                        >
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if information and information.youtube %}
+                        <a
+                            href="{{ information.youtube }}"
+                            target="_blank"
+                            class="social-button shadow-sm"
+                            title="YouTube"
+                        >
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,724 @@
+{% extends "base.html" %}
+
+{% block title %}
+NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-75">
+
+            <div class="col-lg-7">
+
+                <span class="hero-badge">
+                    Kasiplik tálim
+                </span>
+
+                <h1 class="hero-title mt-3">
+
+                    NÓKIS QALASÍ 
+                    <span>3-SANLÍ TEXNIKUM</span>
+
+                </h1>
+
+                {% if information and information.short_description %}
+
+                <p class="hero-description">
+                    {{ information.short_description }}
+                </p>
+
+                {% else %}
+
+                <p class="hero-description">
+                    Sapalı kasiplik tálim,
+                    ámeliy kónlikpeler hám 
+                    keleshegińiz ushın múmkinshilikler.
+                </p>
+
+                {% endif %}
+
+
+                <div class="hero-buttons mt-4">
+
+                    <a
+                        href="{% url 'specialty_list' %}"
+                        class="btn btn-primary btn-lg px-4"
+                    >
+                        Jónelisler menen tanısıń
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+
+                    <a
+                        href="{% url 'admissions' %}"
+                        class="btn btn-outline-primary btn-lg px-4 ms-2"
+                    >
+                        Qabıllaw
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5 d-none d-lg-block">
+
+                <div class="hero-visual">
+
+                    <div class="hero-icon">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+
+                    <div class="hero-circle circle-one"></div>
+                    <div class="hero-circle circle-two"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO / STATS
+========================= -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="row g-0 stats-card">
+
+            <div class="col-md-4 stat-item">
+
+                <i class="bi bi-mortarboard"></i>
+
+                <div>
+                    <h3>
+                        Prafessiyanal
+                    </h3>
+
+                    <p>
+                        tálim
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 stat-item">
+
+                <i class="bi bi-people"></i>
+
+                <div>
+                    <h3>
+                        Tájiriybeli
+                    </h3>
+
+                    <p>
+                        Muǵallimler
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 stat-item">
+
+                <i class="bi bi-briefcase"></i>
+
+                <div>
+                    <h3>
+                        Keleshek
+                    </h3>
+
+                    <p>
+                        Karyera múmkinshilikleri
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SPECIALTIES
+========================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    TA'LIM
+                </span>
+
+                <h2>
+                    Biziń qánigeliklerimiz
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'specialty_list' %}"
+                class="btn btn-outline-primary"
+            >
+                View All
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for specialty in specialties %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="home-specialty-card h-100">
+
+                    {% if specialty.image %}
+
+                    <img
+                        src="{{ specialty.image.url }}"
+                        alt="{{ specialty.name }}"
+                    >
+
+                    {% else %}
+
+                    <div class="home-card-icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="p-4">
+
+                        <h4 class="fw-bold">
+                            {{ specialty.name }}
+                        </h4>
+
+
+                        {% if specialty.short_description %}
+
+                        <p class="text-secondary">
+                            {{ specialty.short_description|truncatewords:20 }}
+                        </p>
+
+                        {% endif %}
+
+
+                        {% if specialty.duration %}
+
+                        <div class="small text-secondary mb-3">
+
+                            <i class="bi bi-clock text-primary me-1"></i>
+
+                            {{ specialty.duration }}
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'specialty_detail' specialty.pk %}"
+                            class="text-primary text-decoration-none fw-semibold"
+                        >
+                            Tolıq maǵlıwmat
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section">
+
+                    <i class="bi bi-mortarboard"></i>
+
+                    <h4>
+                        Arnawlı usınıslar tez arada
+                    </h4>
+
+                    <p>
+                        Tálim programmalarımız haqqındaǵı 
+                        maǵlıwmatlar tez arada daǵaza etiledi.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT / CTA
+========================= -->
+
+<section class="home-about-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <span class="text-primary fw-semibold">
+                    Texnikummız haqqında
+                </span>
+
+                <h2 class="fw-bold display-6 mt-2">
+                    Keleshek ushın kónlikpelerdi qáliplestiriw
+                </h2>
+
+
+                {% if information and information.about %}
+
+                <div class="text-secondary mt-3 about-preview">
+                    {{ information.about|truncatewords:60|linebreaks }}
+                </div>
+
+                {% else %}
+
+                <p class="text-secondary mt-3">
+                    NÓKIS QALASÍ 3-SANLÍ TEXNIKUM Studentlerge kásiplik bilim hám á
+                    meliy kónlikpelerdi rawajlandırıw imkaniyatların jaratadı.
+                </p>
+
+                {% endif %}
+
+
+                <a
+                    href="{% url 'about' %}"
+                    class="btn btn-primary mt-3"
+                >
+                     Biz haqqımızda
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-6 mt-5 mt-lg-0">
+
+                <div class="about-visual">
+
+                    {% if information and information.logo %}
+
+                    <img
+                        src="{{ information.logo.url }}"
+                        alt="{{ information.name }}"
+                    >
+
+                    {% else %}
+
+                    <i class="bi bi-building"></i>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TEACHERS
+========================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    Jámáátimiz
+                </span>
+
+                <h2>
+                    Oqıtıwshılarımız menen tanısıń
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'teacher_list' %}"
+                class="btn btn-outline-primary"
+            >
+                Hámmesin kóriw
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for teacher in teachers %}
+
+            <div class="col-6 col-lg-3">
+
+                <div class="home-teacher-card">
+
+                    {% if teacher.photo %}
+
+                    <img
+                        src="{{ teacher.photo.url }}"
+                        alt="{{ teacher.full_name }}"
+                    >
+
+                    {% else %}
+
+                    <div class="teacher-home-placeholder">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="p-3 text-center">
+
+                        <h5 class="fw-bold mb-1">
+                            {{ teacher.full_name }}
+                        </h5>
+
+                        {% if teacher.position %}
+
+                        <p class="text-primary small mb-0">
+                            {{ teacher.position }}
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section">
+
+                    <i class="bi bi-people"></i>
+
+                    <h4>
+                        Teacher profiles coming soon
+                    </h4>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NEWS
+========================= -->
+
+<section class="home-news-section py-5">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    NEWS & EVENTS
+                </span>
+
+                <h2>
+                    Latest News
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'news_list' %}"
+                class="btn btn-outline-primary"
+            >
+                All News
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for news in news_items %}
+
+            <div class="col-md-4">
+
+                <article class="home-news-card">
+
+                    {% if news.image %}
+
+                    <img
+                        src="{{ news.image.url }}"
+                        alt="{{ news.title }}"
+                    >
+
+                    {% else %}
+
+                    <div class="news-home-placeholder">
+
+                        <i class="bi bi-newspaper"></i>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="p-4">
+
+                        <div class="small text-primary mb-2">
+
+                            <i class="bi bi-calendar3 me-1"></i>
+
+                            {{ news.published_at|date:"d M Y" }}
+
+                        </div>
+
+
+                        <h4 class="fw-bold">
+                            {{ news.title }}
+                        </h4>
+
+
+                        {% if news.short_description %}
+
+                        <p class="text-secondary">
+                            {{ news.short_description|truncatewords:20 }}
+                        </p>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'news_detail' news.pk %}"
+                            class="text-primary text-decoration-none fw-semibold"
+                        >
+                            Read More
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section">
+
+                    <i class="bi bi-newspaper"></i>
+
+                    <h4>
+                        News coming soon
+                    </h4>
+
+                    <p>
+                        Latest news and announcements will
+                        appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY PREVIEW
+========================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    CAMPUS LIFE
+                </span>
+
+                <h2>
+                    Gallery
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'gallery_list' %}"
+                class="btn btn-outline-primary"
+            >
+                View Gallery
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-3">
+
+            {% for image in gallery_images %}
+
+            <div class="col-6 col-md-3">
+
+                <a
+                    href="{{ image.image.url }}"
+                    target="_blank"
+                    class="home-gallery-item"
+                >
+
+                    <img
+                        src="{{ image.image.url }}"
+                        alt="{{ image.title }}"
+                    >
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section">
+
+                    <i class="bi bi-images"></i>
+
+                    <h4>
+                        Gallery coming soon
+                    </h4>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ADMISSIONS CTA
+========================= -->
+
+<section class="home-cta-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span>
+                    ADMISSIONS
+                </span>
+
+                <h2>
+                    Ready to Start Your Future?
+                </h2>
+
+                <p>
+                    Learn about our admission process,
+                    requirements and available opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                <a
+                    href="{% url 'admissions' %}"
+                    class="btn btn-light btn-lg px-4"
+                >
+                    Admission Information
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

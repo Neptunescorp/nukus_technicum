@@ -1,0 +1,724 @@
+{% extends "base.html" %}
+
+{% block title %}
+NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero-section py-5 position-relative overflow-hidden fade-in-up">
+
+    <div class="container py-4">
+
+        <div class="row align-items-center min-vh-75">
+
+            <div class="col-lg-7">
+
+                <span class="hero-badge mb-3">
+                    <i class="bi bi-mortarboard-fill me-1"></i> Kasiplik tálim
+                </span>
+
+                <h1 class="hero-title mt-2">
+
+                    NÓKIS QALASÍ 
+                    <span>3-SANLÍ TEXNIKUM</span>
+
+                </h1>
+
+                {% if information and information.short_description %}
+
+                <p class="hero-description text-muted">
+                    {{ information.short_description }}
+                </p>
+
+                {% else %}
+
+                <p class="hero-description text-muted">
+                    Sapalı kasiplik tálim,
+                    ámeliy kónlikpeler hám 
+                    keleshegińiz ushın múmkinshilikler.
+                </p>
+
+                {% endif %}
+
+
+                <div class="hero-buttons mt-4 d-flex flex-wrap gap-2">
+
+                    <a
+                        href="{% url 'specialty_list' %}"
+                        class="btn btn-primary btn-lg px-4 shadow-sm"
+                    >
+                        Jónelisler menen tanısıń
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+
+                    <a
+                        href="{% url 'admissions' %}"
+                        class="btn btn-outline-primary btn-lg px-4 shadow-sm"
+                    >
+                        Qabıllaw
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5 d-none d-lg-block">
+
+                <div class="hero-visual">
+
+                    <div class="hero-icon shadow-lg">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+
+                    <div class="hero-circle circle-one"></div>
+                    <div class="hero-circle circle-two"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO / STATS
+========================= -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="row g-0 stats-card shadow-sm border">
+
+            <div class="col-md-4 stat-item">
+
+                <i class="bi bi-mortarboard"></i>
+
+                <div>
+                    <h3>
+                        Prafessiyanal
+                    </h3>
+
+                    <p>
+                        tálim
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 stat-item">
+
+                <i class="bi bi-people"></i>
+
+                <div>
+                    <h3>
+                        Tájiriybeli
+                    </h3>
+
+                    <p>
+                        Muǵallimler
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 stat-item">
+
+                <i class="bi bi-briefcase"></i>
+
+                <div>
+                    <h3>
+                        Keleshek
+                    </h3>
+
+                    <p>
+                        Karyera múmkinshilikleri
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SPECIALTIES
+========================= -->
+
+<section class="py-5 bg-white mt-4">
+
+    <div class="container py-3">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="hero-badge mb-2">
+                    TA'LIM
+                </span>
+
+                <h2>
+                    Biziń qánigeliklerimiz
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'specialty_list' %}"
+                class="btn btn-outline-primary shadow-sm"
+            >
+                Hámmesin kóriw
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for specialty in specialties %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="home-specialty-card h-100 border rounded-4 shadow-sm bg-white">
+
+                    {% if specialty.image %}
+
+                    <img
+                        src="{{ specialty.image.url }}"
+                        alt="{{ specialty.name }}"
+                        class="border-bottom"
+                    >
+
+                    {% else %}
+
+                    <div class="home-card-icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="p-4">
+
+                        <h4 class="fw-bold fs-5 text-dark mb-3">
+                            {{ specialty.name }}
+                        </h4>
+
+
+                        {% if specialty.short_description %}
+
+                        <p class="text-muted" style="line-height: 1.6;">
+                            {{ specialty.short_description|truncatewords:20 }}
+                        </p>
+
+                        {% endif %}
+
+
+                        {% if specialty.duration %}
+
+                        <div class="small text-muted mb-3 d-flex align-items-center">
+
+                            <i class="bi bi-clock text-primary me-2"></i>
+
+                            <span>{{ specialty.duration }}</span>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'specialty_detail' specialty.pk %}"
+                            class="text-primary text-decoration-none fw-semibold d-inline-flex align-items-center"
+                        >
+                            Tolıq maǵlıwmat
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section border shadow-sm">
+
+                    <i class="bi bi-mortarboard"></i>
+
+                    <h4 class="fw-bold text-dark">
+                        Arnawlı usınıslar tez arada
+                    </h4>
+
+                    <p class="text-muted mb-0">
+                        Tálim programmalarımız haqqındaǵı 
+                        maǵlıwmatlar tez arada daǵaza etiledi.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT / CTA
+========================= -->
+
+<section class="home-about-section py-5 bg-light border-top border-bottom">
+
+    <div class="container py-4">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="hero-badge mb-3">
+                    Texnikummız haqqında
+                </span>
+
+                <h2 class="fw-bold display-6 text-dark mt-2">
+                    Keleshek ushın kónlikpelerdi qáliplestiriw
+                </h2>
+
+
+                {% if information and information.about %}
+
+                <div class="text-muted mt-3 about-preview" style="line-height: 1.8;">
+                    {{ information.about|truncatewords:60|linebreaks }}
+                </div>
+
+                {% else %}
+
+                <p class="text-muted mt-3" style="line-height: 1.8;">
+                    NÓKIS QALASÍ 3-SANLÍ TEXNIKUM Studentlerge kásiplik bilim hám á
+                    meliy kónlikpelerdi rawajlandırıw imkaniyatların jaratadı.
+                </p>
+
+                {% endif %}
+
+
+                <a
+                    href="{% url 'about' %}"
+                    class="btn btn-primary mt-4 shadow-sm px-4"
+                >
+                     Biz haqqımızda
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="about-visual border shadow-sm">
+
+                    {% if information and information.logo %}
+
+                    <img
+                        src="{{ information.logo.url }}"
+                        alt="{{ information.name }}"
+                    >
+
+                    {% else %}
+
+                    <i class="bi bi-building"></i>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TEACHERS
+========================= -->
+
+<section class="py-5 bg-white">
+
+    <div class="container py-3">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="hero-badge mb-2">
+                    Jámáátimiz
+                </span>
+
+                <h2>
+                    Oqıtıwshılarımız menen tanısıń
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'teacher_list' %}"
+                class="btn btn-outline-primary shadow-sm"
+            >
+                Hámmesin kóriw
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for teacher in teachers %}
+
+            <div class="col-6 col-lg-3">
+
+                <div class="home-teacher-card border rounded-4 shadow-sm overflow-hidden bg-white h-100">
+
+                    {% if teacher.photo %}
+
+                    <img
+                        src="{{ teacher.photo.url }}"
+                        alt="{{ teacher.full_name }}"
+                    >
+
+                    {% else %}
+
+                    <div class="teacher-home-placeholder">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="p-3 text-center">
+
+                        <h5 class="fw-bold fs-6 text-dark mb-1">
+                            {{ teacher.full_name }}
+                        </h5>
+
+                        {% if teacher.position %}
+
+                        <p class="text-primary small mb-0 fw-semibold">
+                            {{ teacher.position }}
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section border shadow-sm">
+
+                    <i class="bi bi-people"></i>
+
+                    <h4 class="fw-bold text-dark mb-0">
+                        Oqıtıwshılar profilleri tez arada usınıs etiledi.
+                    </h4>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NEWS
+========================= -->
+
+<section class="home-news-section py-5 bg-light border-top">
+
+    <div class="container py-3">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="hero-badge mb-2">
+                    Jańalıqlar hám ilajlar
+                </span>
+
+                <h2>
+                    Sońǵı jańalıqlar
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'news_list' %}"
+                class="btn btn-outline-primary shadow-sm"
+            >
+                Barlıq jańalıqlar
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for news in news_items %}
+
+            <div class="col-md-4">
+
+                <article class="home-news-card border rounded-4 shadow-sm bg-white h-100 overflow-hidden">
+
+                    {% if news.image %}
+
+                    <img
+                        src="{{ news.image.url }}"
+                        alt="{{ news.title }}"
+                    >
+
+                    {% else %}
+
+                    <div class="news-home-placeholder">
+
+                        <i class="bi bi-newspaper"></i>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="p-4">
+
+                        <div class="small text-primary fw-semibold mb-2 d-flex align-items-center">
+
+                            <i class="bi bi-calendar3 me-1"></i>
+
+                            <span>{{ news.published_at|date:"d M Y" }}</span>
+
+                        </div>
+
+
+                        <h4 class="fw-bold fs-5 text-dark mb-3">
+                            {{ news.title }}
+                        </h4>
+
+
+                        {% if news.short_description %}
+
+                        <p class="text-muted" style="line-height: 1.6;">
+                            {{ news.short_description|truncatewords:20 }}
+                        </p>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'news_detail' news.pk %}"
+                            class="text-primary text-decoration-none fw-semibold"
+                        >
+                            Kóbirek oqıw
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section border shadow-sm">
+
+                    <i class="bi bi-newspaper"></i>
+
+                    <h4 class="fw-bold text-dark">
+                        Tez arada jańalıqlar
+                    </h4>
+
+                    <p class="text-muted mb-0">
+                        Eng so‘nggi yangiliklar va e’lonlar shu yerda paydo bo‘ladi.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY PREVIEW
+========================= -->
+
+<section class="py-5 bg-white">
+
+    <div class="container py-3">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="hero-badge mb-2">
+                    Oqiwshilar turmısı
+                </span>
+
+                <h2>
+                    Galereya
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'gallery_list' %}"
+                class="btn btn-outline-primary shadow-sm"
+            >
+                Galereyanı kóriw
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-3">
+
+            {% for image in gallery_images %}
+
+            <div class="col-6 col-md-3">
+
+                <a
+                    href="{{ image.image.url }}"
+                    target="_blank"
+                    class="home-gallery-item border rounded-4 d-block shadow-sm"
+                >
+
+                    <img
+                        src="{{ image.image.url }}"
+                        alt="{{ image.title }}"
+                    >
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-section border shadow-sm">
+
+                    <i class="bi bi-images"></i>
+
+                    <h4 class="fw-bold text-dark mb-0">
+                        Galereya tez arada
+                    </h4>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ADMISSIONS CTA
+========================= -->
+
+<section class="home-cta-section shadow-lg">
+
+    <div class="container py-3">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold mb-3">
+                    Qabillaw
+                </span>
+
+                <h2 class="text-white fw-bold">
+                    Keleshegińizdi baslawǵa tayarsız ba?
+                </h2>
+
+                <p class="text-white-50 mt-2">
+                    Qabıl procesi, talaplar hám 
+                    ámeldegi múmkinshilikler haqqında bilip alın.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                <a
+                    href="{% url 'admissions' %}"
+                    class="btn btn-light btn-lg px-4 shadow text-primary fw-semibold"
+                >
+                    Qabıl haqqında maǵlıwmat
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endbutton %} <!-- wait, closing tag is standard block -->

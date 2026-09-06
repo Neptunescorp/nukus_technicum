@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+Timetable | Nukus Shahar 3-sonli Texnikum
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-primary fw-semibold">
+                ACADEMIC SCHEDULE
+            </span>
+
+            <h1 class="fw-bold mt-2">
+                Timetable
+            </h1>
+
+            <p class="text-secondary">
+                View the current class timetable
+                of Nukus Shahar 3-sonli Texnikum.
+            </p>
+
+        </div>
+
+
+        {% for timetable in timetables %}
+
+        <div class="timetable-card mb-5">
+
+            <div class="p-4">
+
+                <h3 class="fw-bold">
+                    {{ timetable.title }}
+                </h3>
+
+                {% if timetable.description %}
+
+                <div class="text-secondary mt-2">
+                    {{ timetable.description|linebreaks }}
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            {% if timetable.timetable_image %}
+
+            <div class="timetable-image-wrapper">
+
+                <img
+                    src="{{ timetable.timetable_image.url }}"
+                    alt="{{ timetable.title }}"
+                    class="timetable-image"
+                >
+
+            </div>
+
+            {% endif %}
+
+
+            {% if timetable.timetable_file %}
+
+            <div class="p-4 border-top">
+
+                <a
+                    href="{{ timetable.timetable_file.url }}"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    <i class="bi bi-file-earmark-arrow-down me-2"></i>
+                    Open Timetable File
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        {% empty %}
+
+        <div class="text-center py-5">
+
+            <i
+                class="bi bi-calendar3 text-primary"
+                style="font-size:60px;"
+            ></i>
+
+            <h3 class="fw-bold mt-3">
+                Timetable is not available yet
+            </h3>
+
+            <p class="text-secondary">
+                The current timetable will be published here soon.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

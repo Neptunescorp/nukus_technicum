@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}
+Baylansu | NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-hero py-5">
+
+    <div class="container text-center py-4">
+
+        <span class="text-primary fw-semibold">
+            Nomerlerimiz
+        </span>
+
+        <h1 class="display-5 fw-bold mt-2">
+            Biz menen baylansu
+        </h1>
+
+        <p class="lead text-secondary">
+            Sawallariniz barma? NÓKIS QALASÍ 3-SANLÍ TEXNIKUM ga baylansiń
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="contact-card">
+
+                    <i class="bi bi-geo-alt"></i>
+
+                    <h4 class="fw-bold">
+                        Manzil
+                    </h4>
+
+                    {% if information and information.address %}
+
+                    <p class="text-secondary">
+                        {{ information.address }}
+                    </p>
+
+                    {% else %}
+
+                    <p class="text-secondary">
+                        Official address will be published soon.
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="contact-card">
+
+                    <i class="bi bi-telephone"></i>
+
+                    <h4 class="fw-bold">
+                        Telefon
+                    </h4>
+
+                    {% if information and information.phone %}
+
+                    <p>
+                        <a
+                            href="tel:{{ information.phone }}"
+                            class="text-secondary text-decoration-none"
+                        >
+                            {{ information.phone }}
+                        </a>
+                    </p>
+
+                    {% else %}
+
+                    <p class="text-secondary">
+                        Phone number will be published soon.
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="contact-card">
+
+                    <i class="bi bi-envelope"></i>
+
+                    <h4 class="fw-bold">
+                        Email
+                    </h4>
+
+                    {% if information and information.email %}
+
+                    <p>
+                        <a
+                            href="mailto:{{ information.email }}"
+                            class="text-secondary text-decoration-none"
+                        >
+                            {{ information.email }}
+                        </a>
+                    </p>
+
+                    {% else %}
+
+                    <p class="text-secondary">
+                        Email will be published soon.
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row mt-5">
+
+            <div class="col-lg-8 mx-auto">
+
+                <div class="contact-social text-center">
+
+                    <h3 class="fw-bold">
+                        Bizge qosiliń
+                    </h3>
+
+                    <p class="text-secondary">
+                        Bizlerdi ijtimaiy tarmaklarda kuzetib bariń
+                    </p>
+
+
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+
+                        {% if information and information.telegram %}
+
+                        <a
+                            href="{{ information.telegram }}"
+                            target="_blank"
+                            class="social-button"
+                        >
+                            <i class="bi bi-telegram"></i>
+                        </a>
+
+                        {% endif %}
+
+
+                        {% if information and information.instagram %}
+
+                        <a
+                            href="{{ information.instagram }}"
+                            target="_blank"
+                            class="social-button"
+                        >
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        {% endif %}
+
+
+                        {% if information and information.facebook %}
+
+                        <a
+                            href="{{ information.facebook }}"
+                            target="_blank"
+                            class="social-button"
+                        >
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        {% endif %}
+
+
+                        {% if information and information.youtube %}
+
+                        <a
+                            href="{{ information.youtube }}"
+                            target="_blank"
+                            class="social-button"
+                        >
+                            <i class="bi bi-youtube"></i>
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
