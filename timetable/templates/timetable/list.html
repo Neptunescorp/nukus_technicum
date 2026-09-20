@@ -14,15 +14,16 @@ Timetable | Nukus Shahar 3-sonli Texnikum
     <!-- Header -->
     <div class="text-center mb-5">
 
-    
+        <span class="text-primary fw-semibold">
+            AKADEMIK KESTE
+        </span>
 
         <h1 class="fw-bold mt-2">
-            Keste 
+            Keste
         </h1>
 
-        <p class="text-secondary">
-                    NÓKIS QALASÍ
-                3-SANLÍ TEXNIKUM
+        <p class="text-secondary mb-0">
+            NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
         </p>
 
     </div>
@@ -43,7 +44,7 @@ Timetable | Nukus Shahar 3-sonli Texnikum
                             for="group"
                             class="form-label fw-semibold"
                         >
-                            Select Student Group
+                            Student toparı
                         </label>
 
                         <select
@@ -53,7 +54,7 @@ Timetable | Nukus Shahar 3-sonli Texnikum
                         >
 
                             <option value="">
-                                Barliq gruppalar
+                                Barlıq toparlar
                             </option>
 
                             {% for group in groups %}
@@ -73,6 +74,7 @@ Timetable | Nukus Shahar 3-sonli Texnikum
 
                     </div>
 
+
                     <div class="col-md-4 mt-3 mt-md-0">
 
                         <button
@@ -80,7 +82,7 @@ Timetable | Nukus Shahar 3-sonli Texnikum
                             class="btn btn-primary btn-lg w-100"
                         >
                             <i class="bi bi-calendar3 me-2"></i>
-                            Kesteni koriw
+                            Kesteni kóriw
                         </button>
 
                     </div>
@@ -99,13 +101,28 @@ Timetable | Nukus Shahar 3-sonli Texnikum
 
     <div class="mb-4">
 
-        <h2 class="fw-bold">
-            {{ selected_group.name }}
-        </h2>
+        <div class="d-flex align-items-center gap-3">
 
-        <p class="text-secondary mb-0">
-            Sabaq Kestesi
-        </p>
+            <div
+                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                style="width:48px;height:48px;"
+            >
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div>
+
+                <h2 class="fw-bold mb-1">
+                    {{ selected_group.name }}
+                </h2>
+
+                <p class="text-secondary mb-0">
+                    Sabaq kestesi
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -115,127 +132,143 @@ Timetable | Nukus Shahar 3-sonli Texnikum
     <!-- Timetable -->
     {% if entries %}
 
-    <div class="table-responsive">
+    <div class="card border-0 shadow-sm overflow-hidden">
 
-        <table class="table table-bordered align-middle">
+        <div class="table-responsive">
 
-            <thead class="table-dark">
+            <table class="table table-hover align-middle mb-0">
 
-                <tr>
+                <thead class="table-dark">
 
-                    <th class="text-center">
-                        Sáne
-                    </th>
+                    <tr>
 
-                    <th class="text-center">
-                        Sabaq
-                    </th>
+                        <th class="text-center">
+                            Kún
+                        </th>
 
-                    <th class="text-center">
-                        Waqtı
-                    </th>
+                        <th class="text-center">
+                            Sabaq
+                        </th>
 
-                    <th>
-                        Pán
-                    </th>
+                        <th class="text-center">
+                            Waqtı
+                        </th>
 
-                    <th>
-                        Ustazlar
-                    </th>
+                        <th>
+                            Pán
+                        </th>
 
-                    <th class="text-center">
-                        Xana
-                    </th>
+                        <th>
+                            Ustaz
+                        </th>
 
-                </tr>
+                        <th class="text-center">
+                            Xana
+                        </th>
 
-            </thead>
+                    </tr>
 
-
-            <tbody>
-
-                {% for entry in entries %}
-
-                <tr>
-
-                    <td class="text-center">
-
-                        <strong>
-                            {{ entry.date|date:"d.m.Y" }}
-                        </strong>
-
-                    </td>
+                </thead>
 
 
-                    <td class="text-center">
+                <tbody>
 
-                        <span class="badge bg-primary">
-                            {{ entry.lesson_number }}
-                        </span>
+                    {% for entry in entries %}
 
-                    </td>
+                    <tr>
 
+                        <td class="text-center">
 
-                    <td class="text-center text-nowrap">
+                            <span class="fw-semibold">
+                                {{ entry.get_day_display }}
+                            </span>
 
-                        {{ entry.start_time|time:"H:i" }}
-                        –
-                        {{ entry.end_time|time:"H:i" }}
-
-                    </td>
+                        </td>
 
 
-                    <td>
+                        <td class="text-center">
 
-                        <strong>
-                            {{ entry.subject }}
-                        </strong>
+                            <span
+                                class="badge bg-primary rounded-pill px-3 py-2"
+                            >
+                                {{ entry.lesson_number }}
+                            </span>
 
-                    </td>
-
-
-                    <td>
-
-                        {% if entry.teacher %}
-
-                        {{ entry.teacher }}
-
-                        {% else %}
-
-                        <span class="text-secondary">
-                            —
-                        </span>
-
-                        {% endif %}
-
-                    </td>
+                        </td>
 
 
-                    <td class="text-center">
+                        <td class="text-center text-nowrap">
 
-                        {% if entry.room %}
+                            <span class="fw-semibold">
+                                {{ entry.start_time|time:"H:i" }}
+                            </span>
 
-                        <span class="badge bg-light text-dark border">
-                            {{ entry.room }}
-                        </span>
+                            <span class="text-secondary mx-1">
+                                –
+                            </span>
 
-                        {% else %}
+                            <span class="fw-semibold">
+                                {{ entry.end_time|time:"H:i" }}
+                            </span>
 
-                        <span class="text-secondary">
-                            —
-                        </span>
+                        </td>
 
-                        {% endif %}
 
-                    </td>
+                        <td>
 
-                </tr>
+                            <strong>
+                                {{ entry.subject }}
+                            </strong>
 
-                {% endfor %}
+                        </td>
 
-            </tbody>
 
-        </table>
+                        <td>
+
+                            {% if entry.teacher %}
+
+                                {{ entry.teacher }}
+
+                            {% else %}
+
+                                <span class="text-secondary">
+                                    —
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td class="text-center">
+
+                            {% if entry.room %}
+
+                                <span
+                                    class="badge bg-light text-dark border px-3 py-2"
+                                >
+                                    {{ entry.room }}
+                                </span>
+
+                            {% else %}
+
+                                <span class="text-secondary">
+                                    —
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     </div>
 
@@ -244,21 +277,24 @@ Timetable | Nukus Shahar 3-sonli Texnikum
 
     <!-- Empty State -->
 
-    <div class="text-center py-5">
+    <div class="card border-0 shadow-sm">
 
-        <i
-            class="bi bi-calendar-x text-primary"
-            style="font-size:60px;"
-        ></i>
+        <div class="card-body text-center py-5">
 
-        <h3 class="fw-bold mt-3">
-            No timetable available
-        </h3>
+            <i
+                class="bi bi-calendar-x text-primary"
+                style="font-size:60px;"
+            ></i>
 
-        <p class="text-secondary">
-            There are currently no active timetable
-            entries for this selection.
-        </p>
+            <h3 class="fw-bold mt-3">
+                Keste joq
+            </h3>
+
+            <p class="text-secondary mb-0">
+                Házirge bul topar ushın sabaq kestesi joq.
+            </p>
+
+        </div>
 
     </div>
 

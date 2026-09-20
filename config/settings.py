@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "gallery",
     "admissions",
     "timetable",
+    'top_students',
 ]
 
 MIDDLEWARE = [

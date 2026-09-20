@@ -38,6 +38,11 @@ urlpatterns = [
     "timetable/",
     include("timetable.urls")
     ),
+
+    path(
+    "top-students/",
+    include("top_students.urls")
+),
 ]
 
 

@@ -21,13 +21,26 @@ class StudentGroup(models.Model):
 
 
 class TimetableEntry(models.Model):
+
+    DAY_CHOICES = [
+                    ("monday", "Dúyshembi"),
+                    ("tuesday", "Seyshembi"),
+                    ("wednesday", "Sárshembi"),
+                    ("thursday", "Beishembi"),
+                    ("friday", "Juma"),
+                    ("saturday", "Shembi"),
+                    ]
+
     group = models.ForeignKey(
         StudentGroup,
         on_delete=models.CASCADE,
         related_name="timetable_entries"
     )
 
-    date = models.DateField()
+    day = models.CharField(
+        max_length=20,
+        choices=DAY_CHOICES
+    )
 
     lesson_number = models.PositiveSmallIntegerField()
 
@@ -62,8 +75,8 @@ class TimetableEntry(models.Model):
         verbose_name_plural = "Timetable Entries"
 
         ordering = [
-            "date",
             "group",
+            "day",
             "lesson_number"
         ]
 
@@ -71,17 +84,17 @@ class TimetableEntry(models.Model):
             models.UniqueConstraint(
                 fields=[
                     "group",
-                    "date",
+                    "day",
                     "lesson_number"
                 ],
-                name="unique_group_date_lesson"
+                name="unique_group_day_lesson"
             )
         ]
 
     def __str__(self):
         return (
             f"{self.group} - "
-            f"{self.date} - "
+            f"{self.get_day_display()} - "
             f"{self.lesson_number}. "
             f"{self.subject}"
         )

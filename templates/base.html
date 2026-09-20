@@ -2,46 +2,87 @@
 
 <!DOCTYPE html>
 <html lang="uz">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}NÓKIS QALASÍ 3-SANLÍ TEXNIKUM{% endblock %}</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Bootstrap 5.3 CSS -->
+    <title>
+        {% block title %}
+            NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+        {% endblock %}
+    </title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP 5.3
+    ====================================================== -->
+
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    <!-- Bootstrap Icons -->
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     >
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}?v=2"
+    >
+
 </head>
+
 
 <body class="d-flex flex-column min-vh-100">
 
-<!-- ================= NAVBAR ================= -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm py-3">
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav
+    class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm py-3"
+>
+
     <div class="container">
 
-        <!-- LOGO / BRAND -->
+
+        <!-- LOGO -->
+
         <a
             class="navbar-brand fw-bold fs-5 d-flex align-items-center gap-2"
             href="{% url 'home' %}"
         >
+
             <i class="bi bi-mortarboard-fill"></i>
-            <span>NÓKIS TEXNIKUM</span>
+
+            <span>
+                NÓKIS TEXNIKUM
+            </span>
+
         </a>
 
 
         <!-- MOBILE MENU BUTTON -->
+
         <button
             class="navbar-toggler border-0 shadow-none"
             type="button"
@@ -51,224 +92,650 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
         >
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
 
         <!-- NAVIGATION -->
-        <div class="collapse navbar-collapse" id="mainNavbar">
 
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar"
+        >
+
+            <ul
+                class="navbar-nav ms-auto align-items-lg-center gap-lg-1"
+            >
+
 
                 <!-- HOME -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'home' %}"
                     >
                         Bas bet
                     </a>
+
                 </li>
 
 
                 <!-- ABOUT -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'about' %}"
                     >
                         Biz haqqımızda
                     </a>
+
                 </li>
 
 
                 <!-- SPECIALTIES -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'specialty_list' %}"
                     >
                         Qánigelikler
                     </a>
+
                 </li>
 
 
                 <!-- TEACHERS -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'teacher_list' %}"
                     >
                         Ustazlar
                     </a>
+
                 </li>
 
 
                 <!-- NEWS -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'news_list' %}"
                     >
                         Jańalıqlar
                     </a>
+
                 </li>
 
 
                 <!-- GALLERY -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'gallery_list' %}"
                     >
                         Galereya
                     </a>
+
                 </li>
 
 
                 <!-- TIMETABLE -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'timetable_list' %}"
                     >
+
                         <i class="bi bi-calendar3 me-1"></i>
+
                         Keste
+
                     </a>
+
+                </li>
+
+
+                <!-- TOP STUDENTS -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link px-3 py-2 rounded-pill"
+                        href="{% url 'top_students:list' %}"
+                    >
+
+                        <i class="bi bi-trophy me-1"></i>
+
+                        Top studentler
+
+                    </a>
+
                 </li>
 
 
                 <!-- ADMISSIONS -->
+
                 <li class="nav-item">
+
                     <a
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'admissions' %}"
                     >
                         Qabıllaw
                     </a>
+
                 </li>
 
 
                 <!-- CONTACT -->
-                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                <li
+                    class="nav-item ms-lg-2 mt-2 mt-lg-0"
+                >
+
                     <a
                         class="btn btn-light text-primary fw-semibold rounded-pill px-4 shadow-sm"
                         href="{% url 'contact' %}"
                     >
                         Baylansıw
                     </a>
+
                 </li>
+
 
             </ul>
 
         </div>
+
     </div>
+
 </nav>
 
 
-<!-- ================= MAIN CONTENT ================= -->
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
 
 <main class="flex-grow-1">
 
     {% block content %}
+
     {% endblock %}
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     PRESENTATION MODE
+========================================================= -->
 
-<footer class="bg-dark text-white pt-5 pb-3 border-top border-secondary">
+<div
+    id="presentationMode"
+    class="presentation-mode"
+    aria-hidden="true"
+>
 
-    <div class="container">
 
-        <div class="row g-4 mb-4">
+    <!-- BACKGROUND -->
 
-            <!-- FOOTER INFO -->
-            <div class="col-lg-4 mb-3">
+    <div class="presentation-background"></div>
 
-                <h5 class="fw-bold fs-5 text-white mb-3">
+
+    <div class="presentation-content">
+
+
+        <!-- =================================================
+             PRESENTATION HEADER
+        ================================================== -->
+
+        <div class="presentation-header">
+
+
+            <!-- SCHOOL INFORMATION -->
+
+            <div>
+
+                <div class="presentation-school">
+
                     NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
-                </h5>
 
-                <p
-                    class="text-white-50"
-                    style="line-height: 1.7;"
-                >
-                    Professional tálim, zamanagóy texnologiyalar hám
-                    keleshegińiz ushın keń múmkinshilikler.
+                </div>
+
+
+                <div
+                    id="presentationDate"
+                    class="presentation-date"
+                ></div>
+
+            </div>
+
+
+            <!-- CLOCK -->
+
+            <div
+                id="presentationClock"
+                class="presentation-clock"
+            >
+                00:00
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             SLIDES
+        ================================================== -->
+
+        <div class="presentation-slides">
+
+
+            <!-- =================================================
+                 SLIDE 1 — TIMETABLE
+            ================================================== -->
+
+            <div
+                class="presentation-slide active"
+                data-slide="timetable"
+            >
+
+                <div class="presentation-icon">
+
+                    <i class="bi bi-calendar3"></i>
+
+                </div>
+
+
+                <div class="presentation-label">
+
+                    AKADEMIK KESTE
+
+                </div>
+
+
+                <h1>
+
+                    Sabaq kestesi
+
+                </h1>
+
+
+                <p>
+
+                    Timetable
+
                 </p>
 
             </div>
 
 
-            <!-- QUICK LINKS -->
+            <!-- =================================================
+                 SLIDE 2 — TOP STUDENTS
+            ================================================== -->
+
+            <div
+                class="presentation-slide"
+                data-slide="students"
+            >
+
+                <div class="presentation-icon">
+
+                    <i class="bi bi-trophy"></i>
+
+                </div>
+
+
+                <div class="presentation-label">
+
+                    JETEKSHI OQUWSHILAR
+
+                </div>
+
+
+                <h1>
+
+                    Top Studentler
+
+                </h1>
+
+
+                <p>
+
+                    Eń jaqsı nátiyjeler
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDE 3 — NEWS
+            ================================================== -->
+
+            <div
+                class="presentation-slide"
+                data-slide="news"
+            >
+
+                <div class="presentation-icon">
+
+                    <i class="bi bi-newspaper"></i>
+
+                </div>
+
+
+                <div class="presentation-label">
+
+                    JAŃALÍQLAR
+
+                </div>
+
+
+                <h1>
+
+                    Texnikum jańalıqları
+
+                </h1>
+
+
+                <p>
+
+                    Sońǵı jańalıqlar hám waqıyalar
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDE 4 — GALLERY
+            ================================================== -->
+
+            <div
+                class="presentation-slide"
+                data-slide="gallery"
+            >
+
+                <div class="presentation-icon">
+
+                    <i class="bi bi-images"></i>
+
+                </div>
+
+
+                <div class="presentation-label">
+
+                    GALEREYA
+
+                </div>
+
+
+                <h1>
+
+                    Bizdiń texnikum
+
+                </h1>
+
+
+                <p>
+
+                    Texnikum ómirinen kórinisler
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             SLIDE INDICATORS
+        ================================================== -->
+
+        <div class="presentation-indicators">
+
+
+            <span
+                class="presentation-dot active"
+                data-dot="0"
+            ></span>
+
+
+            <span
+                class="presentation-dot"
+                data-dot="1"
+            ></span>
+
+
+            <span
+                class="presentation-dot"
+                data-dot="2"
+            ></span>
+
+
+            <span
+                class="presentation-dot"
+                data-dot="3"
+            ></span>
+
+
+        </div>
+
+
+        <!-- HINT -->
+
+        <div class="presentation-hint">
+
+            Touch or move the mouse to return
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    class="bg-dark text-white pt-5 pb-3 border-top border-secondary"
+>
+
+
+    <div class="container">
+
+
+        <div class="row g-4 mb-4">
+
+
+            <!-- FOOTER INFO -->
+
             <div class="col-lg-4 mb-3">
 
-                <h5 class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3">
-                    Tez siltemeler
+
+                <h5
+                    class="fw-bold fs-5 text-white mb-3"
+                >
+
+                    NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+
                 </h5>
 
-                <ul class="list-unstyled d-flex flex-column gap-2">
+
+                <p
+                    class="text-white-50"
+                    style="line-height: 1.7;"
+                >
+
+                    Professional tálim, zamanagóy
+                    texnologiyalar hám keleshegińiz
+                    ushın keń múmkinshilikler.
+
+                </p>
+
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="col-lg-4 mb-3">
+
+
+                <h5
+                    class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3"
+                >
+
+                    Tez siltemeler
+
+                </h5>
+
+
+                <ul
+                    class="list-unstyled d-flex flex-column gap-2"
+                >
+
 
                     <!-- HOME -->
+
                     <li>
+
                         <a
                             href="{% url 'home' %}"
                             class="text-white-50 text-decoration-none hover-white"
                         >
-                            <i class="bi bi-chevron-right small me-1"></i>
+
+                            <i
+                                class="bi bi-chevron-right small me-1"
+                            ></i>
+
                             Bas bet
+
                         </a>
+
                     </li>
 
 
                     <!-- SPECIALTIES -->
+
                     <li>
+
                         <a
                             href="{% url 'specialty_list' %}"
                             class="text-white-50 text-decoration-none hover-white"
                         >
-                            <i class="bi bi-chevron-right small me-1"></i>
+
+                            <i
+                                class="bi bi-chevron-right small me-1"
+                            ></i>
+
                             Qánigelikler
+
                         </a>
+
                     </li>
 
 
                     <!-- TIMETABLE -->
+
                     <li>
+
                         <a
                             href="{% url 'timetable_list' %}"
                             class="text-white-50 text-decoration-none hover-white"
                         >
-                            <i class="bi bi-chevron-right small me-1"></i>
+
+                            <i
+                                class="bi bi-chevron-right small me-1"
+                            ></i>
+
                             Keste
+
                         </a>
+
+                    </li>
+
+
+                    <!-- TOP STUDENTS -->
+
+                    <li>
+
+                        <a
+                            href="{% url 'top_students:list' %}"
+                            class="text-white-50 text-decoration-none hover-white"
+                        >
+
+                            <i
+                                class="bi bi-chevron-right small me-1"
+                            ></i>
+
+                            Top studentler
+
+                        </a>
+
                     </li>
 
 
                     <!-- ADMISSIONS -->
+
                     <li>
+
                         <a
                             href="{% url 'admissions' %}"
                             class="text-white-50 text-decoration-none hover-white"
                         >
-                            <i class="bi bi-chevron-right small me-1"></i>
+
+                            <i
+                                class="bi bi-chevron-right small me-1"
+                            ></i>
+
                             Qabıllaw
+
                         </a>
+
                     </li>
 
 
                     <!-- CONTACT -->
+
                     <li>
+
                         <a
                             href="{% url 'contact' %}"
                             class="text-white-50 text-decoration-none hover-white"
                         >
-                            <i class="bi bi-chevron-right small me-1"></i>
+
+                            <i
+                                class="bi bi-chevron-right small me-1"
+                            ></i>
+
                             Baylansıw
+
                         </a>
+
                     </li>
+
 
                 </ul>
 
@@ -276,83 +743,491 @@
 
 
             <!-- CONTACT DETAILS -->
+
             <div class="col-lg-4 mb-3">
 
-                <h5 class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3">
+
+                <h5
+                    class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3"
+                >
+
                     Baylansıw ushın
+
                 </h5>
 
 
                 <!-- ADDRESS -->
-                <p class="text-white-50 mb-2 d-flex align-items-start gap-2">
 
-                    <i class="bi bi-geo-alt text-primary fs-5 mt-n1"></i>
+                <p
+                    class="text-white-50 mb-2 d-flex align-items-start gap-2"
+                >
+
+                    <i
+                        class="bi bi-geo-alt text-primary fs-5 mt-n1"
+                    ></i>
+
 
                     <span>
-                        Nókis qalası, A.Utepov kóshesi
+
+                        Nókis qalası,
+                        A.Utepov kóshesi
+
                     </span>
 
                 </p>
 
 
                 <!-- PHONE 1 -->
-                <p class="text-white-50 mb-2 d-flex align-items-center gap-2">
 
-                    <i class="bi bi-telephone text-primary"></i>
+                <p
+                    class="text-white-50 mb-2 d-flex align-items-center gap-2"
+                >
+
+                    <i
+                        class="bi bi-telephone text-primary"
+                    ></i>
+
 
                     <a
                         href="tel:+998885051800"
                         class="text-white-50 text-decoration-none"
                     >
+
                         +998 88 505 18 00
+
                     </a>
 
                 </p>
 
 
                 <!-- PHONE 2 -->
-                <p class="text-white-50 mb-0 d-flex align-items-center gap-2">
 
-                    <i class="bi bi-telephone text-primary"></i>
+                <p
+                    class="text-white-50 mb-0 d-flex align-items-center gap-2"
+                >
+
+                    <i
+                        class="bi bi-telephone text-primary"
+                    ></i>
+
 
                     <a
                         href="tel:+998913781876"
                         class="text-white-50 text-decoration-none"
                     >
+
                         +998 91 378 18 76
+
                     </a>
 
                 </p>
 
+
             </div>
+
 
         </div>
 
     </div>
 
 
-    <!-- COPYRIGHT BAR -->
+    <!-- COPYRIGHT -->
 
-    <div class="border-top border-secondary pt-3 mt-4">
+    <div
+        class="border-top border-secondary pt-3 mt-4"
+    >
 
-        <div class="container text-center">
+        <div
+            class="container text-center"
+        >
 
             <small class="text-white-50">
-                &copy; 2026 Nókis Texnikum. Barlıq huquqlar qorǵalǵan.
+
+                &copy; 2026 Nókis Texnikum.
+                Barlıq huquqlar qorǵalǵan.
+
             </small>
 
         </div>
 
     </div>
 
+
 </footer>
 
 
-<!-- Bootstrap 5.3 JS Bundle -->
+<!-- =========================================================
+     BOOTSTRAP JAVASCRIPT
+========================================================= -->
 
 <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- =========================================================
+     PRESENTATION JAVASCRIPT
+========================================================= -->
+
+<script>
+
+(function () {
+
+
+    /* =====================================================
+       GET PRESENTATION ELEMENTS
+    ====================================================== */
+
+    const presentation =
+        document.getElementById(
+            "presentationMode"
+        );
+
+
+    if (!presentation) {
+
+        return;
+
+    }
+
+
+    const slides =
+        Array.from(
+            document.querySelectorAll(
+                ".presentation-slide"
+            )
+        );
+
+
+    const dots =
+        Array.from(
+            document.querySelectorAll(
+                ".presentation-dot"
+            )
+        );
+
+
+    const clock =
+        document.getElementById(
+            "presentationClock"
+        );
+
+
+    const dateElement =
+        document.getElementById(
+            "presentationDate"
+        );
+
+
+    /* =====================================================
+       VARIABLES
+    ====================================================== */
+
+    let currentSlide = 0;
+
+    let presentationTimer = null;
+
+    let inactivityTimer = null;
+
+
+    /* =====================================================
+       SETTINGS
+    ====================================================== */
+
+    /*
+     * TEST MODE
+     *
+     * Presentation starts after 10 seconds.
+     *
+     * Later change this to:
+     *
+     * const INACTIVITY_TIME = 5 * 60 * 1000;
+     */
+
+    const INACTIVITY_TIME =
+        10 * 1000;
+
+
+    /*
+     * Each slide stays visible
+     * for 20 seconds.
+     */
+
+    const SLIDE_TIME =
+        20 * 1000;
+
+
+    /* =====================================================
+       SHOW SLIDE
+    ====================================================== */
+
+    function showSlide(index) {
+
+
+        slides.forEach(
+            (slide, i) => {
+
+                slide.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            }
+        );
+
+
+        dots.forEach(
+            (dot, i) => {
+
+                dot.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            }
+        );
+
+
+        currentSlide = index;
+
+    }
+
+
+    /* =====================================================
+       NEXT SLIDE
+    ====================================================== */
+
+    function nextSlide() {
+
+
+        const next =
+            (
+                currentSlide + 1
+            ) % slides.length;
+
+
+        showSlide(next);
+
+    }
+
+
+    /* =====================================================
+       START PRESENTATION
+    ====================================================== */
+
+    function startPresentation() {
+
+
+        if (
+            presentation.classList.contains(
+                "active"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        presentation.classList.add(
+            "active"
+        );
+
+
+        presentation.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        showSlide(0);
+
+
+        presentationTimer =
+            setInterval(
+                nextSlide,
+                SLIDE_TIME
+            );
+
+    }
+
+
+    /* =====================================================
+       STOP PRESENTATION
+    ====================================================== */
+
+    function stopPresentation() {
+
+
+        presentation.classList.remove(
+            "active"
+        );
+
+
+        presentation.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        if (presentationTimer) {
+
+
+            clearInterval(
+                presentationTimer
+            );
+
+
+            presentationTimer =
+                null;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       RESET INACTIVITY TIMER
+    ====================================================== */
+
+    function resetInactivityTimer() {
+
+
+        /*
+         * If presentation is currently
+         * running, user interaction
+         * immediately closes it.
+         */
+
+        if (
+            presentation.classList.contains(
+                "active"
+            )
+        ) {
+
+            stopPresentation();
+
+        }
+
+
+        clearTimeout(
+            inactivityTimer
+        );
+
+
+        inactivityTimer =
+            setTimeout(
+                startPresentation,
+                INACTIVITY_TIME
+            );
+
+    }
+
+
+    /* =====================================================
+       USER ACTIVITY
+    ====================================================== */
+
+    const userEvents = [
+
+        "mousemove",
+
+        "mousedown",
+
+        "keydown",
+
+        "scroll",
+
+        "touchstart",
+
+        "click"
+
+    ];
+
+
+    userEvents.forEach(
+        eventName => {
+
+            document.addEventListener(
+                eventName,
+                resetInactivityTimer,
+                {
+                    passive: true
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOCK
+    ====================================================== */
+
+    function updateClock() {
+
+
+        const now =
+            new Date();
+
+
+        const hours =
+            String(
+                now.getHours()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const minutes =
+            String(
+                now.getMinutes()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        clock.textContent =
+            `${hours}:${minutes}`;
+
+
+        dateElement.textContent =
+            now.toLocaleDateString(
+                "kaa-UZ",
+                {
+                    weekday: "long",
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+    }
+
+
+    updateClock();
+
+
+    setInterval(
+        updateClock,
+        1000
+    );
+
+
+    /* =====================================================
+       START INACTIVITY COUNTDOWN
+    ====================================================== */
+
+    resetInactivityTimer();
+
+
+})();
+
 </script>
 
+
 </body>
+
 </html>
