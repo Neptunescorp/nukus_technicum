@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "nukustechnicum-production.up.railway.app",
+    "skillful-clarity-production-0c6d.up.railway.app",
+
     "localhost",
     "127.0.0.1",
 ]
