@@ -14,7 +14,7 @@
 
     <title>
         {% block title %}
-            NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
+            NÓKIS QALASÍ 3-SANLÍ TEXNIKUMI
         {% endblock %}
     </title>
 
@@ -75,7 +75,7 @@
             <i class="bi bi-mortarboard-fill"></i>
 
             <span>
-                NÓKIS TEXNIKUM
+                3-SANLÍ TEXNIKUMI
             </span>
 
         </a>
@@ -132,7 +132,7 @@
                         class="nav-link px-3 py-2 rounded-pill"
                         href="{% url 'about' %}"
                     >
-                        Biz haqqımızda
+                        Biz haqqında
                     </a>
 
                 </li>
@@ -223,7 +223,7 @@
 
                         <i class="bi bi-trophy me-1"></i>
 
-                        Top studentler
+                        Ulgili Oqıwshilar
 
                     </a>
 
@@ -286,271 +286,162 @@
      PRESENTATION MODE
 ========================================================= -->
 
+
+<!-- =========================================================
+     PRESENTATION MODE — NÓKIS TEXNIKUM
+========================================================= -->
+
 <div
     id="presentationMode"
     class="presentation-mode"
     aria-hidden="true"
+    role="region"
+    aria-label="Texnikum presentation"
 >
-
-
-    <!-- BACKGROUND -->
-
+    <!-- Animated background -->
     <div class="presentation-background"></div>
-
 
     <div class="presentation-content">
 
-
-        <!-- =================================================
-             PRESENTATION HEADER
-        ================================================== -->
-
-        <div class="presentation-header">
-
-
-            <!-- SCHOOL INFORMATION -->
-
+        <!-- HEADER -->
+        <header class="presentation-header">
             <div>
-
                 <div class="presentation-school">
-
-                    NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
-
+                    NÓKIS QALASÍ 3-SANLÍ TEXNIKUMI
                 </div>
-
 
                 <div
                     id="presentationDate"
                     class="presentation-date"
                 ></div>
-
             </div>
-
-
-            <!-- CLOCK -->
 
             <div
                 id="presentationClock"
                 class="presentation-clock"
+                aria-label="Current time"
             >
                 00:00
             </div>
+        </header>
 
+        <!-- SLIDES -->
+        <main class="presentation-slides">
 
-        </div>
-
-
-        <!-- =================================================
-             SLIDES
-        ================================================== -->
-
-        <div class="presentation-slides">
-
-
-            <!-- =================================================
-                 SLIDE 1 — TIMETABLE
-            ================================================== -->
-
-            <div
+            <!-- SLIDE 1: TIMETABLE -->
+            <section
                 class="presentation-slide active"
                 data-slide="timetable"
+                aria-hidden="false"
             >
-
                 <div class="presentation-icon">
-
                     <i class="bi bi-calendar3"></i>
-
                 </div>
-
 
                 <div class="presentation-label">
-
                     AKADEMIK KESTE
-
                 </div>
 
-
-                <h1>
-
-                    Sabaq kestesi
-
-                </h1>
-
+                <h1>Sabaq kestesi</h1>
 
                 <p>
-
-                    Timetable
-
+                    Oqıw sabaqları, waqıtı hám akademiyalıq kesteler
                 </p>
+            </section>
 
-            </div>
-
-
-            <!-- =================================================
-                 SLIDE 2 — TOP STUDENTS
-            ================================================== -->
-
-            <div
+            <!-- SLIDE 2: TOP STUDENTS -->
+            <section
                 class="presentation-slide"
                 data-slide="students"
+                aria-hidden="true"
             >
-
                 <div class="presentation-icon">
-
                     <i class="bi bi-trophy"></i>
-
                 </div>
-
 
                 <div class="presentation-label">
-
                     JETEKSHI OQUWSHILAR
-
                 </div>
 
-
-                <h1>
-
-                    Top Studentler
-
-                </h1>
-
+                <h1>Top studentler</h1>
 
                 <p>
-
-                    Eń jaqsı nátiyjeler
-
+                    Jetiskenlik, bilim hám eń jaqsı nátiyjeler
                 </p>
+            </section>
 
-            </div>
-
-
-            <!-- =================================================
-                 SLIDE 3 — NEWS
-            ================================================== -->
-
-            <div
+            <!-- SLIDE 3: NEWS -->
+            <section
                 class="presentation-slide"
                 data-slide="news"
+                aria-hidden="true"
             >
-
                 <div class="presentation-icon">
-
                     <i class="bi bi-newspaper"></i>
-
                 </div>
-
 
                 <div class="presentation-label">
-
                     JAŃALÍQLAR
-
                 </div>
 
-
-                <h1>
-
-                    Texnikum jańalıqları
-
-                </h1>
-
+                <h1>Texnikum jańalıqları</h1>
 
                 <p>
-
-                    Sońǵı jańalıqlar hám waqıyalar
-
+                    Sońǵı jańalıqlar, ilajlar hám jetiskenlikler
                 </p>
+            </section>
 
-            </div>
-
-
-            <!-- =================================================
-                 SLIDE 4 — GALLERY
-            ================================================== -->
-
-            <div
+            <!-- SLIDE 4: GALLERY -->
+            <section
                 class="presentation-slide"
                 data-slide="gallery"
+                aria-hidden="true"
             >
-
                 <div class="presentation-icon">
-
                     <i class="bi bi-images"></i>
-
                 </div>
-
 
                 <div class="presentation-label">
-
                     GALEREYA
-
                 </div>
 
-
-                <h1>
-
-                    Bizdiń texnikum
-
-                </h1>
-
+                <h1>Bizdiń texnikum</h1>
 
                 <p>
-
-                    Texnikum ómirinen kórinisler
-
+                    Texnikum ómirinen estelikli kórinisler
                 </p>
+            </section>
 
-            </div>
+        </main>
 
-
+        <!-- SLIDE INDICATORS -->
+        <div
+            class="presentation-indicators"
+            aria-label="Presentation slide indicators"
+        >
+            <span class="presentation-dot active" data-dot="0"></span>
+            <span class="presentation-dot" data-dot="1"></span>
+            <span class="presentation-dot" data-dot="2"></span>
+            <span class="presentation-dot" data-dot="3"></span>
         </div>
 
-
-        <!-- =================================================
-             SLIDE INDICATORS
-        ================================================== -->
-
-        <div class="presentation-indicators">
-
-
-            <span
-                class="presentation-dot active"
-                data-dot="0"
-            ></span>
-
-
-            <span
-                class="presentation-dot"
-                data-dot="1"
-            ></span>
-
-
-            <span
-                class="presentation-dot"
-                data-dot="2"
-            ></span>
-
-
-            <span
-                class="presentation-dot"
-                data-dot="3"
-            ></span>
-
-
-        </div>
-
-
-        <!-- HINT -->
-
+        <!-- FOOTER HINT -->
         <div class="presentation-hint">
-
-            Touch or move the mouse to return
-
+            Dawam etiw ushın ekranǵa tiyіń yamasa túymeni basıń
         </div>
-
 
     </div>
 
+    <!-- FIVE-MINUTE SLIDE PROGRESS BAR -->
+    <div
+        class="presentation-progress"
+        aria-hidden="true"
+    >
+        <div
+            id="presentationProgressBar"
+            class="presentation-progress-bar"
+        ></div>
+    </div>
 </div>
 
 
@@ -558,301 +449,121 @@
      FOOTER
 ========================================================= -->
 
-<footer
-    class="bg-dark text-white pt-5 pb-3 border-top border-secondary"
->
-
-
+<footer class="bg-dark text-white pt-5 pb-3 border-top border-secondary">
     <div class="container">
-
-
         <div class="row g-4 mb-4">
 
-
-            <!-- FOOTER INFO -->
-
+            <!-- SCHOOL INFORMATION -->
             <div class="col-lg-4 mb-3">
-
-
-                <h5
-                    class="fw-bold fs-5 text-white mb-3"
-                >
-
+                <h5 class="fw-bold fs-5 text-white mb-3">
                     NÓKIS QALASÍ 3-SANLÍ TEXNIKUM
-
                 </h5>
 
-
-                <p
-                    class="text-white-50"
-                    style="line-height: 1.7;"
-                >
-
-                    Professional tálim, zamanagóy
-                    texnologiyalar hám keleshegińiz
-                    ushın keń múmkinshilikler.
-
+                <p class="text-white-50" style="line-height: 1.7;">
+                    Professional tálim, zamanagóy texnologiyalar
+                    hám keleshegińiz ushın keń múmkinshilikler.
                 </p>
-
-
             </div>
-
 
             <!-- QUICK LINKS -->
-
             <div class="col-lg-4 mb-3">
-
-
-                <h5
-                    class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3"
-                >
-
+                <h5 class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3">
                     Tez siltemeler
-
                 </h5>
 
-
-                <ul
-                    class="list-unstyled d-flex flex-column gap-2"
-                >
-
-
-                    <!-- HOME -->
+                <ul class="list-unstyled d-flex flex-column gap-2">
 
                     <li>
-
-                        <a
-                            href="{% url 'home' %}"
-                            class="text-white-50 text-decoration-none hover-white"
-                        >
-
-                            <i
-                                class="bi bi-chevron-right small me-1"
-                            ></i>
-
+                        <a href="{% url 'home' %}"
+                           class="text-white-50 text-decoration-none hover-white">
+                            <i class="bi bi-chevron-right small me-1"></i>
                             Bas bet
-
                         </a>
-
                     </li>
 
-
-                    <!-- SPECIALTIES -->
-
                     <li>
-
-                        <a
-                            href="{% url 'specialty_list' %}"
-                            class="text-white-50 text-decoration-none hover-white"
-                        >
-
-                            <i
-                                class="bi bi-chevron-right small me-1"
-                            ></i>
-
+                        <a href="{% url 'specialty_list' %}"
+                           class="text-white-50 text-decoration-none hover-white">
+                            <i class="bi bi-chevron-right small me-1"></i>
                             Qánigelikler
-
                         </a>
-
                     </li>
 
-
-                    <!-- TIMETABLE -->
-
                     <li>
-
-                        <a
-                            href="{% url 'timetable_list' %}"
-                            class="text-white-50 text-decoration-none hover-white"
-                        >
-
-                            <i
-                                class="bi bi-chevron-right small me-1"
-                            ></i>
-
+                        <a href="{% url 'timetable_list' %}"
+                           class="text-white-50 text-decoration-none hover-white">
+                            <i class="bi bi-chevron-right small me-1"></i>
                             Keste
-
                         </a>
-
                     </li>
 
-
-                    <!-- TOP STUDENTS -->
-
                     <li>
-
-                        <a
-                            href="{% url 'top_students:list' %}"
-                            class="text-white-50 text-decoration-none hover-white"
-                        >
-
-                            <i
-                                class="bi bi-chevron-right small me-1"
-                            ></i>
-
+                        <a href="{% url 'top_students:list' %}"
+                           class="text-white-50 text-decoration-none hover-white">
+                            <i class="bi bi-chevron-right small me-1"></i>
                             Top studentler
-
                         </a>
-
                     </li>
 
-
-                    <!-- ADMISSIONS -->
-
                     <li>
-
-                        <a
-                            href="{% url 'admissions' %}"
-                            class="text-white-50 text-decoration-none hover-white"
-                        >
-
-                            <i
-                                class="bi bi-chevron-right small me-1"
-                            ></i>
-
+                        <a href="{% url 'admissions' %}"
+                           class="text-white-50 text-decoration-none hover-white">
+                            <i class="bi bi-chevron-right small me-1"></i>
                             Qabıllaw
-
                         </a>
-
                     </li>
-
-
-                    <!-- CONTACT -->
 
                     <li>
-
-                        <a
-                            href="{% url 'contact' %}"
-                            class="text-white-50 text-decoration-none hover-white"
-                        >
-
-                            <i
-                                class="bi bi-chevron-right small me-1"
-                            ></i>
-
+                        <a href="{% url 'contact' %}"
+                           class="text-white-50 text-decoration-none hover-white">
+                            <i class="bi bi-chevron-right small me-1"></i>
                             Baylansıw
-
                         </a>
-
                     </li>
-
 
                 </ul>
-
             </div>
-
 
             <!-- CONTACT DETAILS -->
-
             <div class="col-lg-4 mb-3">
-
-
-                <h5
-                    class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3"
-                >
-
+                <h5 class="fw-bold fs-6 text-uppercase tracking-wide text-white mb-3">
                     Baylansıw ushın
-
                 </h5>
 
-
-                <!-- ADDRESS -->
-
-                <p
-                    class="text-white-50 mb-2 d-flex align-items-start gap-2"
-                >
-
-                    <i
-                        class="bi bi-geo-alt text-primary fs-5 mt-n1"
-                    ></i>
-
-
-                    <span>
-
-                        Nókis qalası,
-                        A.Utepov kóshesi
-
-                    </span>
-
+                <p class="text-white-50 mb-2 d-flex align-items-start gap-2">
+                    <i class="bi bi-geo-alt text-primary fs-5 mt-n1"></i>
+                    <span>Nókis qalası, A. Utepov kóshesi</span>
                 </p>
 
-
-                <!-- PHONE 1 -->
-
-                <p
-                    class="text-white-50 mb-2 d-flex align-items-center gap-2"
-                >
-
-                    <i
-                        class="bi bi-telephone text-primary"
-                    ></i>
-
-
-                    <a
-                        href="tel:+998885051800"
-                        class="text-white-50 text-decoration-none"
-                    >
-
+                <p class="text-white-50 mb-2 d-flex align-items-center gap-2">
+                    <i class="bi bi-telephone text-primary"></i>
+                    <a href="tel:+998885051800"
+                       class="text-white-50 text-decoration-none">
                         +998 88 505 18 00
-
                     </a>
-
                 </p>
 
-
-                <!-- PHONE 2 -->
-
-                <p
-                    class="text-white-50 mb-0 d-flex align-items-center gap-2"
-                >
-
-                    <i
-                        class="bi bi-telephone text-primary"
-                    ></i>
-
-
-                    <a
-                        href="tel:+998913781876"
-                        class="text-white-50 text-decoration-none"
-                    >
-
+                <p class="text-white-50 mb-0 d-flex align-items-center gap-2">
+                    <i class="bi bi-telephone text-primary"></i>
+                    <a href="tel:+998913781876"
+                       class="text-white-50 text-decoration-none">
                         +998 91 378 18 76
-
                     </a>
-
                 </p>
-
-
             </div>
 
-
         </div>
-
     </div>
-
 
     <!-- COPYRIGHT -->
-
-    <div
-        class="border-top border-secondary pt-3 mt-4"
-    >
-
-        <div
-            class="container text-center"
-        >
-
+    <div class="border-top border-secondary pt-3 mt-4">
+        <div class="container text-center">
             <small class="text-white-50">
-
                 &copy; 2026 Nókis Texnikum.
                 Barlıq huquqlar qorǵalǵan.
-
             </small>
-
         </div>
-
     </div>
-
-
 </footer>
 
 
@@ -860,9 +571,7 @@
      BOOTSTRAP JAVASCRIPT
 ========================================================= -->
 
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <!-- =========================================================
@@ -870,331 +579,233 @@
 ========================================================= -->
 
 <script>
-
 (function () {
+    "use strict";
 
+    /* -------------------------------------------------------
+       ELEMENTS
+    ------------------------------------------------------- */
 
-    /* =====================================================
-       GET PRESENTATION ELEMENTS
-    ====================================================== */
+    const presentation = document.getElementById("presentationMode");
 
-    const presentation =
-        document.getElementById(
-            "presentationMode"
-        );
+    if (!presentation) return;
 
+    const slides = Array.from(
+        presentation.querySelectorAll(".presentation-slide")
+    );
 
-    if (!presentation) {
+    const dots = Array.from(
+        presentation.querySelectorAll(".presentation-dot")
+    );
 
-        return;
+    const clock = document.getElementById("presentationClock");
+    const dateElement = document.getElementById("presentationDate");
 
-    }
+    const progressBar = document.getElementById(
+        "presentationProgressBar"
+    );
 
+    if (!slides.length) return;
 
-    const slides =
-        Array.from(
-            document.querySelectorAll(
-                ".presentation-slide"
-            )
-        );
+    /* -------------------------------------------------------
+       SETTINGS
+    ------------------------------------------------------- */
 
+    // Wait 5 minutes without activity before showing presentation.
+    const INACTIVITY_TIME = 5 * 60 * 1000;
 
-    const dots =
-        Array.from(
-            document.querySelectorAll(
-                ".presentation-dot"
-            )
-        );
+    // Show each slide for 5 minutes.
+    const SLIDE_TIME = 5 * 60 * 1000;
 
+    // Update the progress bar every second.
+    const PROGRESS_UPDATE_TIME = 1000;
 
-    const clock =
-        document.getElementById(
-            "presentationClock"
-        );
-
-
-    const dateElement =
-        document.getElementById(
-            "presentationDate"
-        );
-
-
-    /* =====================================================
-       VARIABLES
-    ====================================================== */
+    /* -------------------------------------------------------
+       STATE
+    ------------------------------------------------------- */
 
     let currentSlide = 0;
-
     let presentationTimer = null;
-
     let inactivityTimer = null;
+    let progressTimer = null;
+    let clockTimer = null;
 
+    let presentationStartedAt = 0;
+    let isActive = false;
 
-    /* =====================================================
-       SETTINGS
-    ====================================================== */
-
-    /*
-     * TEST MODE
-     *
-     * Presentation starts after 10 seconds.
-     *
-     * Later change this to:
-     *
-     * const INACTIVITY_TIME = 5 * 60 * 1000;
-     */
-
-    const INACTIVITY_TIME =
-        10 * 1000;
-
-
-    /*
-     * Each slide stays visible
-     * for 20 seconds.
-     */
-
-    const SLIDE_TIME =
-        20 * 1000;
-
-
-    /* =====================================================
+    /* -------------------------------------------------------
        SHOW SLIDE
-    ====================================================== */
+    ------------------------------------------------------- */
 
     function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
 
+        slides.forEach((slide, i) => {
+            const active = i === currentSlide;
 
-        slides.forEach(
-            (slide, i) => {
+            slide.classList.toggle("active", active);
+            slide.setAttribute("aria-hidden", String(!active));
+        });
 
-                slide.classList.toggle(
-                    "active",
-                    i === index
-                );
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentSlide);
+        });
 
-            }
-        );
+        presentationStartedAt = Date.now();
 
+        if (progressBar) {
+            progressBar.style.transition = "none";
+            progressBar.style.width = "0%";
 
-        dots.forEach(
-            (dot, i) => {
-
-                dot.classList.toggle(
-                    "active",
-                    i === index
-                );
-
-            }
-        );
-
-
-        currentSlide = index;
-
+            // Allow the browser to apply the reset before animating.
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    if (isActive) {
+                        progressBar.style.transition =
+                            `width ${PROGRESS_UPDATE_TIME}ms linear`;
+                    }
+                });
+            });
+        }
     }
 
-
-    /* =====================================================
+    /* -------------------------------------------------------
        NEXT SLIDE
-    ====================================================== */
+    ------------------------------------------------------- */
 
     function nextSlide() {
+        if (!isActive) return;
 
-
-        const next =
-            (
-                currentSlide + 1
-            ) % slides.length;
-
-
-        showSlide(next);
-
+        showSlide((currentSlide + 1) % slides.length);
     }
 
+    /* -------------------------------------------------------
+       PROGRESS BAR
+    ------------------------------------------------------- */
 
-    /* =====================================================
+    function updateProgress() {
+        if (!isActive || !progressBar) return;
+
+        const elapsed = Date.now() - presentationStartedAt;
+
+        const progress = Math.min(
+            (elapsed / SLIDE_TIME) * 100,
+            100
+        );
+
+        progressBar.style.width = `${progress}%`;
+    }
+
+    /* -------------------------------------------------------
        START PRESENTATION
-    ====================================================== */
+    ------------------------------------------------------- */
 
     function startPresentation() {
+        if (isActive) return;
 
+        isActive = true;
 
-        if (
-            presentation.classList.contains(
-                "active"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        presentation.classList.add(
-            "active"
-        );
-
-
-        presentation.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
+        presentation.classList.add("active");
+        presentation.setAttribute("aria-hidden", "false");
 
         showSlide(0);
 
+        presentationTimer = setInterval(
+            nextSlide,
+            SLIDE_TIME
+        );
 
-        presentationTimer =
-            setInterval(
-                nextSlide,
-                SLIDE_TIME
-            );
-
+        progressTimer = setInterval(
+            updateProgress,
+            PROGRESS_UPDATE_TIME
+        );
     }
 
-
-    /* =====================================================
+    /* -------------------------------------------------------
        STOP PRESENTATION
-    ====================================================== */
+    ------------------------------------------------------- */
 
     function stopPresentation() {
+        if (!isActive) return;
 
+        isActive = false;
 
-        presentation.classList.remove(
-            "active"
-        );
+        presentation.classList.remove("active");
+        presentation.setAttribute("aria-hidden", "true");
 
-
-        presentation.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-
-        if (presentationTimer) {
-
-
-            clearInterval(
-                presentationTimer
-            );
-
-
-            presentationTimer =
-                null;
-
+        if (presentationTimer !== null) {
+            clearInterval(presentationTimer);
+            presentationTimer = null;
         }
 
+        if (progressTimer !== null) {
+            clearInterval(progressTimer);
+            progressTimer = null;
+        }
+
+        if (progressBar) {
+            progressBar.style.transition = "none";
+            progressBar.style.width = "0%";
+        }
     }
 
-
-    /* =====================================================
-       RESET INACTIVITY TIMER
-    ====================================================== */
+    /* -------------------------------------------------------
+       INACTIVITY TIMER
+    ------------------------------------------------------- */
 
     function resetInactivityTimer() {
-
-
-        /*
-         * If presentation is currently
-         * running, user interaction
-         * immediately closes it.
-         */
-
-        if (
-            presentation.classList.contains(
-                "active"
-            )
-        ) {
-
+        // User activity closes the presentation.
+        if (isActive) {
             stopPresentation();
-
         }
 
+        if (inactivityTimer !== null) {
+            clearTimeout(inactivityTimer);
+        }
 
-        clearTimeout(
-            inactivityTimer
+        inactivityTimer = setTimeout(
+            startPresentation,
+            INACTIVITY_TIME
         );
-
-
-        inactivityTimer =
-            setTimeout(
-                startPresentation,
-                INACTIVITY_TIME
-            );
-
     }
 
-
-    /* =====================================================
+    /* -------------------------------------------------------
        USER ACTIVITY
-    ====================================================== */
+    ------------------------------------------------------- */
 
     const userEvents = [
-
         "mousemove",
-
         "mousedown",
-
         "keydown",
-
         "scroll",
-
         "touchstart",
-
         "click"
-
     ];
 
+    userEvents.forEach((eventName) => {
+        document.addEventListener(
+            eventName,
+            resetInactivityTimer,
+            { passive: true }
+        );
+    });
 
-    userEvents.forEach(
-        eventName => {
-
-            document.addEventListener(
-                eventName,
-                resetInactivityTimer,
-                {
-                    passive: true
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       CLOCK
-    ====================================================== */
+    /* -------------------------------------------------------
+       CLOCK AND DATE
+    ------------------------------------------------------- */
 
     function updateClock() {
+        const now = new Date();
 
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
 
-        const now =
-            new Date();
+        if (clock) {
+            clock.textContent = `${hours}:${minutes}`;
+        }
 
-
-        const hours =
-            String(
-                now.getHours()
-            ).padStart(
-                2,
-                "0"
-            );
-
-
-        const minutes =
-            String(
-                now.getMinutes()
-            ).padStart(
-                2,
-                "0"
-            );
-
-
-        clock.textContent =
-            `${hours}:${minutes}`;
-
-
-        dateElement.textContent =
-            now.toLocaleDateString(
+        if (dateElement) {
+            dateElement.textContent = now.toLocaleDateString(
                 "kaa-UZ",
                 {
                     weekday: "long",
@@ -1203,31 +814,39 @@
                     year: "numeric"
                 }
             );
-
+        }
     }
-
 
     updateClock();
 
+    clockTimer = setInterval(updateClock, 1000);
 
-    setInterval(
-        updateClock,
-        1000
-    );
-
-
-    /* =====================================================
-       START INACTIVITY COUNTDOWN
-    ====================================================== */
+    /* -------------------------------------------------------
+       START INITIAL INACTIVITY COUNTDOWN
+    ------------------------------------------------------- */
 
     resetInactivityTimer();
 
+    /* -------------------------------------------------------
+       CLEAN UP TIMERS IF PAGE IS HIDDEN
+    ------------------------------------------------------- */
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stopPresentation();
+
+            if (inactivityTimer !== null) {
+                clearTimeout(inactivityTimer);
+                inactivityTimer = null;
+            }
+        } else {
+            resetInactivityTimer();
+            updateClock();
+        }
+    });
 
 })();
-
 </script>
 
-
 </body>
-
 </html>

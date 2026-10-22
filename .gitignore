@@ -1,9 +1,17 @@
-venv/
+# Python
 __pycache__/
-*.pyc
-.env
-db.sqlite3
+*.py[cod]
+venv/
+venv_backup/
 
-.history/
+# Django
+db.sqlite3
 staticfiles/
+
+# Editor history
+.history/
+
+# Local data backups
 railway_data_backup.json
+.env
+railway_data_clean.json

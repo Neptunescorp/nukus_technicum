@@ -120,18 +120,37 @@ footer a:hover {
     box-shadow: 0 18px 35px rgba(15, 23, 42, 0.12);
 }
 
+/* ---------- TEACHER PHOTOS (FIXED) ---------- */
+
 .teacher-photo, .teacher-detail-photo {
     width: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.teacher-card:hover .teacher-photo {
-    transform: scale(1.03);
+/* List page: same portrait frame for every teacher */
+.teacher-photo {
+    display: block;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 15%;   /* keeps the head, crops mostly from the bottom */
+    background: #f1f5f9;
 }
 
-.teacher-photo { height: 300px; }
-.teacher-detail-photo { height: 400px; max-width: 350px; }
+/* Softer hover zoom so faces are not cropped more */
+.teacher-card:hover .teacher-photo {
+    transform: scale(1.02);
+}
+
+/* Detail page photo */
+.teacher-detail-photo {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-width: 350px;
+    object-position: center 15%;
+    border-radius: 15px;
+}
 
 .teacher-placeholder, .teacher-detail-placeholder, .teacher-home-placeholder {
     display: flex;
@@ -140,9 +159,15 @@ footer a:hover {
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
     color: #0f172a;
 }
-.teacher-placeholder { height: 300px; font-size: 100px; }
-.teacher-detail-placeholder { width: 350px; max-width: 100%; height: 400px; margin: auto; font-size: 130px; border-radius: 15px; }
+.teacher-placeholder { aspect-ratio: 4 / 5; font-size: 100px; }
+.teacher-detail-placeholder { width: 350px; max-width: 100%; aspect-ratio: 4 / 5; margin: auto; font-size: 130px; border-radius: 15px; }
 .teacher-home-placeholder { height: 260px; font-size: 80px; width: 100%; }
+
+/* Teacher photos on the homepage cards */
+.home-teacher-card img {
+    height: 260px;
+    object-position: center 15%;
+}
 
 .news-image { width: 100%; height: 230px; object-fit: cover; }
 .news-placeholder { height: 230px; display: flex; align-items: center; justify-content: center; background: #f1f5f9; color: #0f172a; font-size: 80px; }
@@ -497,250 +522,413 @@ footer a:hover {
     .section-heading h2 { font-size: 28px; }
     .home-cta-section h2 { font-size: 28px; }
 }
+
 .timetable-card {
     background: white;
-
     border-radius: 15px;
-
     overflow: hidden;
-
     border: 1px solid #eee;
-
-    box-shadow:
-        0 5px 25px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
 }
 
 .timetable-image-wrapper {
     padding: 20px;
-
     background: #f8f9fa;
-
     text-align: center;
 }
 
 .timetable-image {
     max-width: 100%;
-
     height: auto;
-
     border-radius: 10px;
 }
 
+
 /* =========================================================
-   PRESENTATION MODE
+   PREMIUM PRESENTATION MODE â€” NUKUS TECHNIKUM
    ========================================================= */
 
-   .presentation-mode {
+.presentation-mode {
     position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-
+    inset: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-
+    height: 100dvh !important;
     display: none !important;
-
     z-index: 999999 !important;
-
     overflow: hidden !important;
-
-    background: #07111f !important;
-
-    color: white !important;
+    isolation: isolate;
+    background: #050b18 !important;
+    color: #fff !important;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .presentation-mode.active {
     display: block !important;
 }
 
+/* Animated background */
+
 .presentation-background {
     position: absolute !important;
-
-    top: -10% !important;
-    left: -10% !important;
-    right: -10% !important;
-    bottom: -10% !important;
+    inset: -25% !important;
+    z-index: 0;
 
     background:
         radial-gradient(
-            circle at 20% 20%,
-            rgba(13, 110, 253, 0.35),
-            transparent 35%
+            ellipse at 15% 20%,
+            rgba(0, 153, 255, 0.30),
+            transparent 38%
         ),
         radial-gradient(
-            circle at 80% 70%,
-            rgba(111, 66, 193, 0.30),
-            transparent 35%
+            ellipse at 85% 75%,
+            rgba(125, 60, 255, 0.27),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(0, 220, 190, 0.12),
+            transparent 45%
         ),
         linear-gradient(
             135deg,
-            #07111f,
-            #102a43,
-            #07111f
-        ) !important;
+            #050b18 0%,
+            #0b1d35 48%,
+            #080d20 100%
+        );
 
-    animation: presentationBackgroundMove 12s ease-in-out infinite alternate;
+    animation: presentationBackgroundMove 22s ease-in-out infinite alternate;
+}
+
+.presentation-background::before,
+.presentation-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.presentation-background::before {
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1.5px);
+    background-size: 65px 65px;
+    opacity: 0.12;
+    animation: presentationStars 35s linear infinite;
+}
+
+.presentation-background::after {
+    background:
+        linear-gradient(
+            120deg,
+            transparent 35%,
+            rgba(255,255,255,.035) 50%,
+            transparent 65%
+        );
+    background-size: 200% 100%;
+    animation: presentationShimmer 12s linear infinite;
 }
 
 @keyframes presentationBackgroundMove {
-    from {
-        transform: scale(1);
+    0% {
+        transform: scale(1) translate3d(-1%, 0, 0);
     }
-
-    to {
-        transform: scale(1.08);
+    100% {
+        transform: scale(1.12) translate3d(1%, -1%, 0);
     }
 }
 
+@keyframes presentationStars {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-65px); }
+}
+
+@keyframes presentationShimmer {
+    from { background-position: 200% 0; }
+    to   { background-position: -200% 0; }
+}
+
+/* Main layout */
+
 .presentation-content {
     position: relative !important;
-
     z-index: 2 !important;
-
     width: 100% !important;
     height: 100% !important;
 
     display: flex !important;
-
     flex-direction: column !important;
-
     box-sizing: border-box !important;
 
-    padding: 40px 60px !important;
+    padding: clamp(20px, 4vw, 54px)
+             clamp(20px, 5vw, 76px) !important;
 }
+
+/* Header */
 
 .presentation-header {
     display: flex !important;
-
     justify-content: space-between !important;
-
-    align-items: flex-start !important;
+    align-items: center !important;
+    gap: 24px;
 }
 
 .presentation-school {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: clamp(.8rem, 1.3vw, 1.1rem);
+    font-weight: 800;
+    letter-spacing: .16em;
+    line-height: 1.6;
+    text-transform: uppercase;
+
+    color: #fff;
+    text-shadow: 0 0 24px rgba(65, 170, 255, .22);
 }
 
 .presentation-date {
-    margin-top: 6px;
-    opacity: 0.7;
+    margin-top: 8px;
+    color: rgba(255,255,255,.62);
+    font-size: clamp(.8rem, 1vw, 1rem);
+    letter-spacing: .04em;
 }
 
 .presentation-clock {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: clamp(1.7rem, 3vw, 2.8rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .04em;
+    white-space: nowrap;
+
+    background: linear-gradient(120deg, #fff, #8fd3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 16px rgba(0, 153, 255, .2));
 }
+
+/* Slide area */
 
 .presentation-slides {
     position: relative !important;
-
     flex: 1 !important;
+    min-height: 0;
 
     display: flex !important;
-
     align-items: center !important;
     justify-content: center !important;
 }
 
 .presentation-slide {
     position: absolute !important;
-
-    width: min(900px, 90vw) !important;
+    width: min(1050px, 92vw) !important;
+    max-height: 100%;
+    overflow: auto;
 
     text-align: center !important;
+    padding: 20px;
 
     opacity: 0 !important;
-
-    transform: translateX(100px) scale(0.94) !important;
-
+    visibility: hidden;
     pointer-events: none !important;
 
+    transform: translateY(35px) scale(.97) !important;
+    filter: blur(8px);
+
     transition:
-        opacity 0.9s ease,
-        transform 0.9s cubic-bezier(.22,1,.36,1) !important;
+        opacity .9s ease,
+        transform 1s cubic-bezier(.22, 1, .36, 1),
+        filter .8s ease,
+        visibility .9s !important;
 }
 
 .presentation-slide.active {
     opacity: 1 !important;
+    visibility: visible;
+    pointer-events: auto !important;
 
-    transform: translateX(0) scale(1) !important;
+    transform: translateY(0) scale(1) !important;
+    filter: blur(0);
 }
 
+/* Glowing icon */
+
 .presentation-icon {
-    width: 110px;
-    height: 110px;
+    width: clamp(76px, 9vw, 120px);
+    height: clamp(76px, 9vw, 120px);
 
     margin: 0 auto 30px;
 
     display: flex !important;
-
-    align-items: center;
-    justify-content: center;
+    align-items: center !important;
+    justify-content: center !important;
 
     border-radius: 30px;
 
-    background: rgba(255,255,255,0.10);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.035)
+        );
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,.18);
 
-    font-size: 3.5rem;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 0 45px rgba(0,153,255,.10);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    color: #8ed5ff;
+
+    animation: presentationIconFloat 4s ease-in-out infinite;
 }
 
+@keyframes presentationIconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Headings and descriptions */
+
 .presentation-slide h1 {
-    margin-bottom: 15px;
+    margin: 0 0 20px !important;
 
-    color: white !important;
+    color: #fff !important;
+    font-size: clamp(2.2rem, 6vw, 5.8rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.12 !important;
+    letter-spacing: -.035em;
 
-    font-size: clamp(3rem, 6vw, 6rem);
+    text-wrap: balance;
 
-    font-weight: 800;
+    text-shadow: 0 8px 45px rgba(0,0,0,.2);
 }
 
 .presentation-slide p {
-    color: white !important;
+    max-width: 850px;
+    margin: 0 auto !important;
 
-    font-size: 1.4rem;
+    color: rgba(255,255,255,.76) !important;
+    font-size: clamp(1rem, 1.8vw, 1.5rem) !important;
+    line-height: 1.8;
 
-    opacity: 0.7;
+    text-wrap: pretty;
 }
+
+/* Slide indicators */
 
 .presentation-indicators {
     display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    gap: 9px;
 
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-bottom: 20px;
+    margin: 0 0 20px !important;
 }
 
 .presentation-dot {
     width: 9px;
     height: 9px;
+    flex: 0 0 auto;
 
-    border-radius: 50%;
+    border-radius: 20px;
+    background: rgba(255,255,255,.25);
 
-    background: rgba(255,255,255,0.3);
+    transition:
+        width .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
 }
 
 .presentation-dot.active {
-    width: 30px;
-
-    border-radius: 10px;
-
-    background: white;
+    width: 32px;
+    background: #75caff;
+    box-shadow: 0 0 18px rgba(80,180,255,.6);
 }
+
+/* Footer hint */
 
 .presentation-hint {
     text-align: center;
+    color: rgba(255,255,255,.42);
+    font-size: .8rem;
+    letter-spacing: .06em;
+    padding-bottom: 4px;
+}
 
-    color: white;
+/* Optional progress bar:
+   Add <div class="presentation-progress">
+        <div class="presentation-progress-bar"></div>
+      </div>
+   inside presentation-mode. */
 
-    font-size: 0.8rem;
+.presentation-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,.08);
+    z-index: 5;
+}
 
-    opacity: 0.35;
+.presentation-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #168cff, #71e4ff, #9d83ff);
+    box-shadow: 0 0 16px rgba(50,160,255,.55);
+    transition: width 1s linear;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+    .presentation-content {
+        padding: 22px 18px !important;
+    }
+
+    .presentation-header {
+        align-items: flex-start !important;
+    }
+
+    .presentation-school {
+        letter-spacing: .08em;
+        max-width: 65%;
+    }
+
+    .presentation-slide {
+        width: 100% !important;
+        padding: 12px;
+    }
+
+    .presentation-icon {
+        margin-bottom: 22px;
+        border-radius: 23px;
+    }
+
+    .presentation-slide h1 {
+        letter-spacing: -.02em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .presentation-background,
+    .presentation-background::before,
+    .presentation-background::after,
+    .presentation-icon {
+        animation: none !important;
+    }
+
+    .presentation-slide,
+    .presentation-dot {
+        transition-duration: .01ms !important;
+    }
 }
