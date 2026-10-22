@@ -26,11 +26,12 @@ SECRET_KEY = "django-insecure-i(j5i(o6!lfc*m6_)^k%ln2e&cqo!yj&=&j(8*pkk)08y#%(26
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "nukus-technicum.onrender.com",
+    "nukustechnicum-production.up.railway.app",
     "127.0.0.1",
     "localhost",
     "172.20.10.10",
 ]
-
 
 # Application definition
 
